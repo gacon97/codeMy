@@ -3,8 +3,10 @@ package com.example.bottomnavigation;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.view.GestureDetector;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -34,6 +36,9 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.example.bottomnavigation.Movie;
 import com.example.bottomnavigation.MyApplication;
 import com.example.bottomnavigation.R;
@@ -50,13 +55,18 @@ public class FragmentHome extends Fragment {
     private static final String TAG = FragmentHome.class.getSimpleName();
     private static final String URL = "https://api.androidhive.info/json/movies_2017.json";
 
-
     private RecyclerView recyclerView;
     private List<Movie> movieList;
     private StoreAdapter mAdapter;
-    private ViewFlipper viewFlipper;
-    private GestureDetector mGestureDetector;
-
+//    private ViewFlipper viewFlipper;
+    private ViewPager viewPager;
+    private Slider slider;
+    private float x1,x2;
+    static final int MIN_DISTANCE = 150;
+    int currentPage = 0;
+    Timer timer;
+    final long DELAY_MS = 3000;//delay in milliseconds before task is to be executed
+    final long PERIOD_MS = 5000;
 
     public FragmentHome() {
         // Required empty public constructor
@@ -90,20 +100,37 @@ public class FragmentHome extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         recyclerView.setNestedScrollingEnabled(false);
-        int images[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
 
-        viewFlipper = view.findViewById(R.id.v_flipper);
-        viewFlipper.canScrollHorizontally(0);
+        viewPager = view.findViewById(R.id.viewpager);
 
-        for(int image: images)
-        {
-            imageFlipper(image);
-        }
+        TabLayout tabLayout = view.findViewById(R.id.tabDots);
+
+        tabLayout.setupWithViewPager(viewPager, true);
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == slider.getCount()) {
+                    currentPage = 0;
+                }
+
+                viewPager.setCurrentItem(currentPage++, true);
+                viewPager.setPageTransformer(true, new FadePageTransformer());
+            }
+        };
+
+        timer = new Timer(); // This will create a new Thread
+        timer.schedule(new TimerTask() { // task to be scheduled
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, DELAY_MS, PERIOD_MS);
+
+        slider = new Slider(getActivity());
+        viewPager.setAdapter(slider);
+
 
         fetchStoreItems();
-        CustomGestureDetector customGestureDetector = new CustomGestureDetector();
-        mGestureDetector = new GestureDetector(getActivity(), customGestureDetector);
-
         return view;
     }
 
@@ -227,41 +254,18 @@ public class FragmentHome extends Fragment {
             return movieList.size();
         }
     }
-    public void imageFlipper(int image)
-    {
-        ImageView imageView = new ImageView(getActivity());
-
-        imageView.setBackgroundResource(image);
-        viewFlipper.addView(imageView);
-        viewFlipper.setAutoStart(true);
-        viewFlipper.setFlipInterval(3000);
-
-        viewFlipper.setInAnimation(getActivity(), android.R.anim.fade_in);
-        viewFlipper.setOutAnimation(getActivity(), android.R.anim.fade_out);
-
-    }
-
-    class CustomGestureDetector extends GestureDetector.SimpleOnGestureListener {
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-
-            // Swipe left (next)
-            if (e1.getX() > e2.getX()) {
-                viewFlipper.showNext();
-            }
-
-            // Swipe right (previous)
-            if (e1.getX() < e2.getX()) {
-                viewFlipper.showPrevious();
-            }
-
-            return super.onFling(e1, e2, velocityX, velocityY);
-        }
-    }
-    public boolean onTouchEvent(MotionEvent event) {
-        mGestureDetector.onTouchEvent(event);
-
-        return onTouchEvent(event);
-    }
-
+//    public void imageFlipper(int image)
+//    {
+//        ImageView imageView = new ImageView(getActivity());
+//
+//        imageView.setBackgroundResource(image);
+//        viewPager.addView(imageView);
+//        viewPager.
+//        viewPager.setAutoStart(true);
+//        viewPager.setFlipInterval(10000);
+//
+//        viewPager.setInAnimation(getActivity(), android.R.anim.fade_in);
+//        viewPager.setOutAnimation(getActivity(), android.R.anim.fade_out);
+//
+//    }
 }
