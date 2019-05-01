@@ -45,56 +45,63 @@
             map:layout_behavior="@string/bottom_sheet_behavior"
             map:behavior_hideable="true"
             map:behavior_peekHeight="55dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/title_travel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="Xem chi tiết"/>
 
-            <TextView
-                android:id="@+id/title_travel"
+                <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageTravel1"
+                android:paddingTop="15dp"
+                android:gravity="center"/>
+
+                <TextView
+                android:id="@+id/discrible_travel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:textSize="15dp"
+                android:gravity="center" />
+
+                <TextView
+                android:id="@+id/image_t"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:text="Xem chi tiết"/>
+                android:text="Một số ảnh khác"/>
 
-            <!--<ImageView-->
-                <!--/>-->
+                <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp">
 
-            <!--<TextView-->
-                <!--android:id="@+id/discrible_travel"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:paddingTop="10dp"-->
-                <!--android:textSize="15dp"-->
-                <!--android:gravity="center"-->
-                <!--android:text="Dat mo ta o day"/>-->
+                </android.support.v7.widget.RecyclerView>
 
-            <!--<TextView-->
-                <!--android:id="@+id/image_t"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:paddingTop="10dp"-->
-                <!--android:textSize="20dp"-->
-                <!--android:textStyle="bold"-->
-                <!--android:gravity="center"-->
-                <!--android:text="Ảnh"/>-->
-
-            <!--<android.support.v7.widget.RecyclerView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:paddingTop="10dp">-->
-
-            <!--</android.support.v7.widget.RecyclerView>-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/event_text"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:paddingTop="10dp"-->
-                <!--android:textSize="20dp"-->
-                <!--android:textStyle="bold"-->
-                <!--android:gravity="center"-->
-                <!--android:text="Sự kiện"/>-->
-
+                <TextView
+                android:id="@+id/event_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="Sự kiện"/>
+            </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </android.support.design.widget.CoordinatorLayout>
 

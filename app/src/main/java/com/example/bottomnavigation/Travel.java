@@ -1,5 +1,7 @@
 package com.example.bottomnavigation;
 
+import java.util.ArrayList;
+
 public class Travel {
     private int id;
     private String name;
@@ -11,6 +13,7 @@ public class Travel {
     private String created_at;
     private String updated_at;
     private String deleteted_at;
+    private ArrayList<String> imageUrl;
 
     public Travel(int id, String name, String place, String feature, String category_id, double lat, double lng, String created_at, String updated_at, String deleteted_at) {
         this.id = id;
@@ -23,6 +26,7 @@ public class Travel {
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.deleteted_at = deleteted_at;
+        imageUrl = new ArrayList<>();
     }
 
     public Travel() {
@@ -106,5 +110,18 @@ public class Travel {
 
     public void setDeleteted_at(String deleteted_at) {
         this.deleteted_at = deleteted_at;
+    }
+
+    public ArrayList<String> getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(ArrayList<String> imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void addUrlImage(String s)
+    {
+        imageUrl.add(s);
     }
 }

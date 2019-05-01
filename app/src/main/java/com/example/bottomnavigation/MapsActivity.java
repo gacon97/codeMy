@@ -1,7 +1,10 @@
 package com.example.bottomnavigation;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -20,9 +23,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -42,6 +47,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -202,11 +208,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void getTravelList(String url)
     {
-        ReadJson readJson =new ReadJson();
+        ReadJsonDataTravel readJson =new ReadJsonDataTravel();
         readJson.execute(url);
     }
 
-    public class ReadJson extends AsyncTask<String, Void, String> {
+    public class ReadJsonDataTravel extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -259,10 +265,83 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Log.d("ReadJson", travelList.get(i).getName());
                     LatLng location = new LatLng(travelList.get(i).getLat(), travelList.get(i).getLng());
                     addMarker(location, travelList.get(i).getName());
+                    ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
+                    readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public class ReadJsonImageTravel extends AsyncTask<String, Void, String> {
+        private Travel t;
+
+        public ReadJsonImageTravel(Travel t)
+        {
+            this.t = t;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            StringBuilder content = new StringBuilder();
+            try {
+                java.net.URL url = new URL(strings[0]);
+                Log.d("ReadJson", "URL done");
+                InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    content.append(line);
+                }
+                bufferedReader.close();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return content.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.d("ReadJson", "Chay load");
+            Log.d("ReadJson", s);
+
+            try {
+                JSONObject obj = new JSONObject(s);
+                JSONArray array = obj.getJSONArray("data");
+                for (int i = 0; i < array.length(); i++) {
+                    String urlImage = "http://3.82.158.167"+array.getJSONObject(i).getString("image");
+                    Log.d("ReadJson", "--------------------------");
+                    Log.d("ReadJson", urlImage);
+                    Log.d("ReadJson", t.getName());
+                    t.addUrlImage(urlImage);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap bmp = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                bmp = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return bmp;
+        }
+        protected void onPostExecute(Bitmap result) {
+            ImageView imageTravel = (ImageView)findViewById(R.id.imageTravel1);
+            imageTravel.setImageBitmap(result);
         }
     }
 
@@ -369,6 +448,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         title_travel.setText(markerClicked.getTitle());
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED:  //Da mo rong
+                        ImageView imageTravel = (ImageView)findViewById(R.id.imageTravel1);
+                        TextView discrible_text = (TextView)findViewById(R.id.discrible_travel);
+                        for (int n = 0; n < travelList.size(); n++) {
+                            if (markerClicked.getTitle().equals(travelList.get(n).getName())==true) {
+//                                DownloadImageTask loadImage = new DownloadImageTask();
+//                                loadImage.execute(travelList.get(n).getImageUrl().get(0));
+                                Glide.
+                                    with(MapsActivity.this)
+                                    .load(travelList.get(n).getImageUrl().get(0))
+                                    .into(imageTravel);
+                                discrible_text.setText(travelList.get(n).getFeature());
+                            }
+                        }
                         break;
                     case BottomSheetBehavior.STATE_HIDDEN:    //An
                         break;
