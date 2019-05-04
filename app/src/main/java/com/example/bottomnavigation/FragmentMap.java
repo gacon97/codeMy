@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.R;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 public class FragmentMap extends Fragment {

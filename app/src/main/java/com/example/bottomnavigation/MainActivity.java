@@ -16,7 +16,9 @@ import android.widget.TextView;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.ViewFlipper;
 
+import com.example.R;
 import com.example.bottomnavigation.BottomNavigationBehavior;
+import com.example.travelevent.UtilitiesFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_event:
-                    selectFragment = new FragmentEvent();
+                    selectFragment = new UtilitiesFragment();
                     loadFragment(selectFragment);
                     return true;
             }
