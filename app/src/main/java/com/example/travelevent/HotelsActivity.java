@@ -33,7 +33,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -153,55 +157,55 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-                final String res = Objects.requireNonNull(response.body()).string();
-                Log.v("RESPONSE", res + " ");
-                mHandler.post(() -> {
-                    if (response.isSuccessful() && response.body() != null) {
-                        try {
-                            JSONArray feedItems = new JSONArray(res);
-                            Log.v("response", feedItems + " ");
-                            selectCity.setVisibility(View.GONE);
-                            layout.setVisibility(View.VISIBLE);
-                            animationView.setVisibility(View.GONE);
-                            textView.setVisibility(View.GONE);
-                            int itemsSize = feedItems.length();
-                            if (itemsSize > 0) {
-                                /*
-                                 * Extracting data from json and adding it to the model
-                                 * then adding that model object to the list
-                                 */
-                                HotelsModel hotelsModel;
-                                List<HotelsModel> hotelsModelList = new ArrayList<>();
-                                JSONObject jo;
-                                try {
-                                    for (int i = 0; i < itemsSize; i++) {
-                                        jo = feedItems.getJSONObject(i);
-                                        hotelsModel = new HotelsModel(jo.getString("title"),
-                                                jo.getString("address"),
-                                                jo.optString("phone", "000"),
-                                                jo.optString("href"),
-                                                jo.getInt("distance"),
-                                                jo.getDouble("latitude"),
-                                                jo.getDouble("longitude"));
-                                        hotelsModelList.add(hotelsModel);
-                                    }
-                                    //Passing the data list to the adapter
-                                    recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
-                                } catch (JSONException je) {
-                                    je.printStackTrace();
-                                    networkError();
-                                }
-                            } else {
-                                noResults();
-                            }
-                        } catch (JSONException e1) {
-                            e1.printStackTrace();
-                            networkError();
-                        }
-                    } else {
-                        networkError();
-                    }
-                });
+//                final String res = Objects.requireNonNull(response.body()).string();
+//                Log.v("RESPONSE", res + " ");
+//                mHandler.post(() -> {
+//                    if (response.isSuccessful() && response.body() != null) {
+//                        try {
+//                            JSONArray feedItems = new JSONArray(res);
+//                            Log.v("response", feedItems + " ");
+//                            selectCity.setVisibility(View.GONE);
+//                            layout.setVisibility(View.VISIBLE);
+//                            animationView.setVisibility(View.GONE);
+//                            textView.setVisibility(View.GONE);
+//                            int itemsSize = feedItems.length();
+//                            if (itemsSize > 0) {
+//                                /*
+//                                 * Extracting data from json and adding it to the model
+//                                 * then adding that model object to the list
+//                                 */
+//                                HotelsModel hotelsModel;
+//                                List<HotelsModel> hotelsModelList = new ArrayList<>();
+//                                JSONObject jo;
+//                                try {
+//                                    for (int i = 0; i < itemsSize; i++) {
+//                                        jo = feedItems.getJSONObject(i);
+//                                        hotelsModel = new HotelsModel(jo.getString("title"),
+//                                                jo.getString("address"),
+//                                                jo.optString("phone", "000"),
+//                                                jo.optString("href"),
+//                                                jo.getInt("distance"),
+//                                                jo.getDouble("latitude"),
+//                                                jo.getDouble("longitude"));
+//                                        hotelsModelList.add(hotelsModel);
+//                                    }
+//                                    //Passing the data list to the adapter
+//                                    recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
+//                                } catch (JSONException je) {
+//                                    je.printStackTrace();
+//                                    networkError();
+//                                }
+//                            } else {
+//                                noResults();
+//                            }
+//                        } catch (JSONException e1) {
+//                            e1.printStackTrace();
+//                            networkError();
+//                        }
+//                    } else {
+//                        networkError();
+//                    }
+//                });
             }
         });
     }
@@ -249,10 +253,20 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 //                            Log.e("ERROR", "Message : " + e.getMessage());
 //                        }
                         try {
-                            JSONObject obj = new JSONObject(uri);
+                            StringBuilder content = new StringBuilder();
+                            java.net.URL url = new URL(uri);
+                            Log.d("ReadJson", "URL done");
+                            InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+                            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                            String line = "";
+                            while ((line = bufferedReader.readLine()) != null) {
+                                content.append(line);
+                            }
+                            bufferedReader.close();
+                            JSONObject obj = new JSONObject(content.toString());
                             JSONArray array = obj.getJSONArray("data");
                           //  String res = response.body().string();
-                          
+
                             for (int i = 0; i < array.length(); i++) {
                                 mSearchCities.add(new CitySearchModel(
                                     array.getJSONObject(i).getString("place"),
@@ -263,6 +277,10 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                             e.printStackTrace();
                             networkError();
                             Log.e("ERROR", "Message : " + e.getMessage());
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     } else {
                         Log.e("ERROR", "Network error");
