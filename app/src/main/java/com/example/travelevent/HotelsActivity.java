@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -27,6 +28,9 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.R;
+import com.example.bottomnavigation.MapsActivity;
+import com.example.bottomnavigation.Travel;
+import com.google.android.gms.maps.model.LatLng;
 
 
 import org.json.JSONArray;
@@ -108,13 +112,13 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        if (savedInstanceState != null && savedInstanceState.containsKey(KEY_SELECTED_CITY)) {
-            mSelectedCity = savedInstanceState.getParcelable(KEY_SELECTED_CITY);
-            if (mSelectedCity != null) {
-                selectCity.setText(String.format(getString(R.string.showing_hotels), mSelectedCity.getName()));
-                getCityInfo(mSelectedCity.getId());
-            }
-        }
+        //if (savedInstanceState != null && savedInstanceState.containsKey(KEY_SELECTED_CITY)) {
+         //   mSelectedCity = savedInstanceState.getParcelable(KEY_SELECTED_CITY);
+
+                //selectCity.setText(String.format(getString(R.string.showing_hotels), mSelectedCity.getName()));
+                getCityInfo();
+
+      //  }
     }
 
     @Override
@@ -127,87 +131,101 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
     /**
      * Calls API to get hotel list
      */
-    private void getHotelList(String latitude, String longitude) {
+    private void getHotelList() {
+        HotelsModel hotelsModel;
+        List<HotelsModel> hotelsModelList = new ArrayList<>();
+        hotelsModel = new HotelsModel("title",
+            "address",
+            "phone",
+            "href",
+            1,
+            1.0,1l
+        );
+        hotelsModelList.add(hotelsModel);
+        recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
+
+
 
        // String uri = API_LINK_V2 + "get-places/" + latitude + "/" + longitude + "/accommodation";
-        String uri = "http://3.82.158.167/api/events";
-        Log.v("EXECUTING", uri);
-
-        //Set up client
-        OkHttpClient client = new OkHttpClient();
-        //Execute request
-        RequestBody requestBody = new MultipartBody.Builder()
-            .setType(MultipartBody.FORM)
-            .addFormDataPart("username", "palleducanh9@gmail.com")
-            .addFormDataPart("password", "!Khoa1234")
-            .build();
-
-        Request request = new Request.Builder()
-                .header("Authorization", "Token " + mToken)
-                .url(uri)
-                .post(requestBody)
-                .build();
-        //Setup callback
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.e("Request Failed", "Message : " + e.getMessage());
-                mHandler.post(() -> networkError());
-            }
-
-            @Override
-            public void onResponse(Call call, final Response response) throws IOException {
-//                final String res = Objects.requireNonNull(response.body()).string();
-//                Log.v("RESPONSE", res + " ");
-//                mHandler.post(() -> {
-//                    if (response.isSuccessful() && response.body() != null) {
-//                        try {
-//                            JSONArray feedItems = new JSONArray(res);
-//                            Log.v("response", feedItems + " ");
-//                            selectCity.setVisibility(View.GONE);
-//                            layout.setVisibility(View.VISIBLE);
-//                            animationView.setVisibility(View.GONE);
-//                            textView.setVisibility(View.GONE);
-//                            int itemsSize = feedItems.length();
-//                            if (itemsSize > 0) {
-//                                /*
-//                                 * Extracting data from json and adding it to the model
-//                                 * then adding that model object to the list
-//                                 */
-//                                HotelsModel hotelsModel;
-//                                List<HotelsModel> hotelsModelList = new ArrayList<>();
-//                                JSONObject jo;
-//                                try {
-//                                    for (int i = 0; i < itemsSize; i++) {
-//                                        jo = feedItems.getJSONObject(i);
-//                                        hotelsModel = new HotelsModel(jo.getString("title"),
-//                                                jo.getString("address"),
-//                                                jo.optString("phone", "000"),
-//                                                jo.optString("href"),
-//                                                jo.getInt("distance"),
-//                                                jo.getDouble("latitude"),
-//                                                jo.getDouble("longitude"));
-//                                        hotelsModelList.add(hotelsModel);
-//                                    }
-//                                    //Passing the data list to the adapter
-//                                    recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
-//                                } catch (JSONException je) {
-//                                    je.printStackTrace();
-//                                    networkError();
-//                                }
-//                            } else {
-//                                noResults();
-//                            }
-//                        } catch (JSONException e1) {
-//                            e1.printStackTrace();
-//                            networkError();
-//                        }
-//                    } else {
-//                        networkError();
-//                    }
-//                });
-            }
-        });
+//        String uri = "http://3.82.158.167/api/events";
+//        Log.v("EXECUTING", uri);
+//
+//        //Set up client
+//        OkHttpClient client = new OkHttpClient();
+//        //Execute request
+//        RequestBody requestBody = new MultipartBody.Builder()
+//            .setType(MultipartBody.FORM)
+//            .addFormDataPart("username", "palleducanh9@gmail.com")
+//            .addFormDataPart("password", "!Khoa1234")
+//            .build();
+//
+//        Request request = new Request.Builder()
+//                .header("Authorization", "Token " + mToken)
+//                .url(uri)
+//                .post(requestBody)
+//                .build();
+//        //Setup callback
+//        client.newCall(request).enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                Log.e("Request Failed", "Message : " + e.getMessage());
+//                mHandler.post(() -> networkError());
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, final Response response) throws IOException {
+////                final String res = Objects.requireNonNull(response.body()).string();
+////                Log.v("RESPONSE", res + " ");
+////                mHandler.post(() -> {
+////                    if (response.isSuccessful() && response.body() != null) {
+////                        try {
+////                            JSONArray feedItems = new JSONArray(res);
+////                            Log.v("response", feedItems + " ");
+////                            selectCity.setVisibility(View.GONE);
+////                            layout.setVisibility(View.VISIBLE);
+////                            animationView.setVisibility(View.GONE);
+////                            textView.setVisibility(View.GONE);
+////                            int itemsSize = feedItems.length();
+////                            if (itemsSize > 0) {
+////                                /*
+////                                 * Extracting data from json and adding it to the model
+////                                 * then adding that model object to the list
+////                                 */
+////                                HotelsModel hotelsModel;
+////                                List<HotelsModel> hotelsModelList = new ArrayList<>();
+////                                JSONObject jo;
+////                                try {
+////                                    for (int i = 0; i < itemsSize; i++) {
+////                                        jo = feedItems.getJSONObject(i);
+////                                        hotelsModel = new HotelsModel(jo.getString("title"),
+////                                                jo.getString("address"),
+////                                                jo.optString("phone", "000"),
+////                                                jo.optString("href"),
+////                                                jo.getInt("distance"),
+////                                                jo.getDouble("latitude"),
+////                                                jo.getDouble("longitude"));
+////                                        hotelsModelList.add(hotelsModel);
+//
+////                                    }
+////                                    //Passing the data list to the adapter
+////                                    recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
+////                                } catch (JSONException je) {
+////                                    je.printStackTrace();
+////                                    networkError();
+////                                }
+////                            } else {
+////                                noResults();
+////                            }
+////                        } catch (JSONException e1) {
+////                            e1.printStackTrace();
+////                            networkError();
+////                        }
+////                    } else {
+////                        networkError();
+////                    }
+////                });
+//            }
+//        });
     }
 
     /**
@@ -252,36 +270,10 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 //                            networkError();
 //                            Log.e("ERROR", "Message : " + e.getMessage());
 //                        }
-                        try {
-                            StringBuilder content = new StringBuilder();
-                            java.net.URL url = new URL(uri);
-                            Log.d("ReadJson", "URL done");
-                            InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
-                            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                            String line = "";
-                            while ((line = bufferedReader.readLine()) != null) {
-                                content.append(line);
-                            }
-                            bufferedReader.close();
-                            JSONObject obj = new JSONObject(content.toString());
-                            JSONArray array = obj.getJSONArray("data");
-                          //  String res = response.body().string();
 
-                            for (int i = 0; i < array.length(); i++) {
-                                mSearchCities.add(new CitySearchModel(
-                                    array.getJSONObject(i).getString("place"),
-                                    array.getJSONObject(i).optString("image"),
-                                    array.getJSONObject(i).getString("id")));
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            networkError();
-                            Log.e("ERROR", "Message : " + e.getMessage());
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                           ReadJsonDataTravel readJson =new ReadJsonDataTravel();
+                            readJson.execute(uri);
+
                     } else {
                         Log.e("ERROR", "Network error");
                         networkError();
@@ -292,12 +284,8 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    /**
-     * Calls the API & fetch details of city with given id
-     *
-     * @param cityId the city id
-     */
-    public void getCityInfo(String cityId) {
+
+    public void getCityInfo() {
 //
 //        animationView.setVisibility(View.VISIBLE);
 //
@@ -326,7 +314,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 //                        JSONObject responseObject = new JSONObject(res);
 //                        String latitude = responseObject.getString("latitude");
 //                        String longitude = responseObject.getString("longitude");
-//                        getHotelList(latitude, longitude);
+                        getHotelList();
 //                    } catch (JSONException e) {
 //                        e.printStackTrace();
 //                        networkError();
@@ -348,7 +336,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                             String selectedCity = item.getId();
                             selectCity.setText(String.format(getString(R.string.showing_hotels), item.getName()));
                             dialog.dismiss();
-                            getCityInfo(selectedCity);
+                            getCityInfo();
                         }).show();
                 recyclerView.setAdapter(null);
                 break;
@@ -555,6 +543,63 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 
         public double getLongitude() {
             return mLongitude;
+        }
+    }
+    public class ReadJsonDataTravel extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            StringBuilder content = new StringBuilder();
+            try {
+                java.net.URL url = new URL(strings[0]);
+                Log.d("ReadJson", "URL done");
+                InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    content.append(line);
+                }
+                bufferedReader.close();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return content.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.d("ReadJson", "Chay load");
+            Log.d("ReadJson", s);
+            mSearchCities = new ArrayList<>();
+
+            try {
+                JSONObject obj = new JSONObject(s);
+                JSONArray array = obj.getJSONArray("data");
+                for (int i = 0; i < array.length(); i++) {
+                    int id = array.getJSONObject(i).getInt("id");
+                    String name = array.getJSONObject(i).getString("name");
+                    String place = array.getJSONObject(i).getString("place");
+                    String feature = array.getJSONObject(i).getString("feature");
+                    String category_id = array.getJSONObject(i).getString("category_id");
+                    String lat = array.getJSONObject(i).getString("lat");
+                    String lng = array.getJSONObject(i).getString("lng");
+                    String created_at = array.getJSONObject(i).getString("created_at");
+                    String updated_at = array.getJSONObject(i).getString("updated_at");
+                    String deleted_at = array.getJSONObject(i).getString("deleted_at");
+
+                    mSearchCities.add(new CitySearchModel(
+                        array.getJSONObject(i).getString("place"),
+                        array.getJSONObject(i).optString("image"),
+                        array.getJSONObject(i).getString("id")));
+                }
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
