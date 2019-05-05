@@ -125,8 +125,8 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
      */
     private void getHotelList(String latitude, String longitude) {
 
-        String uri = API_LINK_V2 + "get-places/" + latitude + "/" + longitude + "/accommodation";
-
+       // String uri = API_LINK_V2 + "get-places/" + latitude + "/" + longitude + "/accommodation";
+        String uri = "http://3.82.158.167/api/events";
         Log.v("EXECUTING", uri);
 
         //Set up client
@@ -211,7 +211,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
      */
     private void fetchCitiesList() {
 
-        String uri = API_LINK_V2 + "get-all-cities/5000";
+        String uri ="http://3.82.158.167/api/events";
         Log.v("EXECUTING", uri);
 
         //Set up client
@@ -233,17 +233,33 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
             public void onResponse(Call call, final Response response) {
                 mHandler.post(() -> {
                     if (response.isSuccessful()) {
+//                        try {
+//                            String res = response.body().string();
+//                            Log.v("RESULT", res);
+//                            JSONArray ar = new JSONArray(res);
+//                            for (int i = 0; i < ar.length(); i++) {
+//                                mSearchCities.add(new CitySearchModel(
+//                                        ar.getJSONObject(i).getString("place"),
+//                                        ar.getJSONObject(i).optString("image"),
+//                                        ar.getJSONObject(i).getString("id")));
+//                            }
+//                        } catch (JSONException | IOException e) {
+//                            e.printStackTrace();
+//                            networkError();
+//                            Log.e("ERROR", "Message : " + e.getMessage());
+//                        }
                         try {
-                            String res = response.body().string();
-                            Log.v("RESULT", res);
-                            JSONArray ar = new JSONArray(res);
-                            for (int i = 0; i < ar.length(); i++) {
+                            JSONObject obj = new JSONObject(uri);
+                            JSONArray array = obj.getJSONArray("data");
+                          //  String res = response.body().string();
+                          
+                            for (int i = 0; i < array.length(); i++) {
                                 mSearchCities.add(new CitySearchModel(
-                                        ar.getJSONObject(i).getString("city_name"),
-                                        ar.getJSONObject(i).optString("image"),
-                                        ar.getJSONObject(i).getString("id")));
+                                    array.getJSONObject(i).getString("place"),
+                                    array.getJSONObject(i).optString("image"),
+                                    array.getJSONObject(i).getString("id")));
                             }
-                        } catch (JSONException | IOException e) {
+                        } catch (JSONException e) {
                             e.printStackTrace();
                             networkError();
                             Log.e("ERROR", "Message : " + e.getMessage());
@@ -264,44 +280,44 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
      * @param cityId the city id
      */
     public void getCityInfo(String cityId) {
-
-        animationView.setVisibility(View.VISIBLE);
-
-        String uri = API_LINK_V2 + "get-city/" + cityId;
-        Log.v("EXECUTING", uri);
-        OkHttpClient client = new OkHttpClient();
-
-        final Request request = new Request.Builder()
-                .header("Authorization", "Token " + mToken)
-                .url(uri)
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                mHandler.post(() -> networkError());
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful() && response.body() != null) {
-
-                    final String res = Objects.requireNonNull(response.body()).string();
-                    try {
-                        Log.v("Response", res);
-                        JSONObject responseObject = new JSONObject(res);
-                        String latitude = responseObject.getString("latitude");
-                        String longitude = responseObject.getString("longitude");
-                        getHotelList(latitude, longitude);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        networkError();
-                    }
-                } else {
-                    networkError();
-                }
-            }
-        });
+//
+//        animationView.setVisibility(View.VISIBLE);
+//
+//      //  String uri = API_LINK_V2 + "get-city/" + cityId;
+//        Log.v("EXECUTING", uri);
+//        OkHttpClient client = new OkHttpClient();
+//
+//        final Request request = new Request.Builder()
+//                .header("Authorization", "Token " + mToken)
+//                .url(uri)
+//                .build();
+//
+//        client.newCall(request).enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                mHandler.post(() -> networkError());
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                if (response.isSuccessful() && response.body() != null) {
+//
+//                    final String res = Objects.requireNonNull(response.body()).string();
+//                    try {
+//                        Log.v("Response", res);
+//                        JSONObject responseObject = new JSONObject(res);
+//                        String latitude = responseObject.getString("latitude");
+//                        String longitude = responseObject.getString("longitude");
+//                        getHotelList(latitude, longitude);
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        networkError();
+//                    }
+//                } else {
+//                    networkError();
+//                }
+//            }
+//        });
     }
 
     public void onClick(View view) {
