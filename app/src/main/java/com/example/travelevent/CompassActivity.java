@@ -35,8 +35,8 @@ public class CompassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_utilities_compass);
         ButterKnife.bind(this);
         setTitle("Compass");
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+       // Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
 
         //Check accelerometer sensor for device
         getAccelerometerSensor();

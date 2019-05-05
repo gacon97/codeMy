@@ -57,7 +57,7 @@ AIzaSyCeFyqlCYlfhpcGDOFGwBFymqhVeVutH6I
     <string name="text_password_updated_alert">Your password has been reset. Login with the new password.</string>
 
     <!-- Travel home page strings -->
-    <string name="hotel">HOTEL BOOKING</string>
+    <string name="hotel">EVENT DETAIL</string>
     <string name="online_Shopping">ONLINE SHOPPING</string>
     <string name="real_time_locator">REAL TIME LOCATOR</string>
     <string name="fun_facts">Fun Facts</string>
@@ -103,7 +103,7 @@ AIzaSyCeFyqlCYlfhpcGDOFGwBFymqhVeVutH6I
     <string name="trip_city">Trip City :</string>
     <string name="trip_date">Trip Date :</string>
     <string name="prompt_trip_name">Enter trip Name</string>
-    <string name="prompt_city_name">Select City</string>
+    <string name="prompt_city_name">Select Event</string>
     <string name="prompt_start_date">Select Trip Date</string>
     <string name="prompt_add_trip">Add trip</string>
     <string name="prompt_friend_name">Enter friend name</string>

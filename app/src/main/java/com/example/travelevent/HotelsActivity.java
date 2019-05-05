@@ -86,7 +86,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
     private CitySearchModel mSelectedCity;
 
     private ArrayList<CitySearchModel> mSearchCities = new ArrayList<>();
-
+    private     List<HotelsModel> hotelsModelList= new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,7 +105,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 
         fetchCitiesList();
 
-        setTitle("Hotels");
+        setTitle("Events");
 
         selectCity.setOnClickListener(this);
 
@@ -116,7 +116,9 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
          //   mSelectedCity = savedInstanceState.getParcelable(KEY_SELECTED_CITY);
 
                 //selectCity.setText(String.format(getString(R.string.showing_hotels), mSelectedCity.getName()));
-                getCityInfo();
+            //    getCityInfo();
+
+        getHotelList();
 
       //  }
     }
@@ -132,18 +134,20 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
      * Calls API to get hotel list
      */
     private void getHotelList() {
-        HotelsModel hotelsModel;
-        List<HotelsModel> hotelsModelList = new ArrayList<>();
-        hotelsModel = new HotelsModel("title",
-            "address",
-            "phone",
-            "href",
-            1,
-            1.0,1l
-        );
-        hotelsModelList.add(hotelsModel);
-        recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
-
+//        HotelsModel hotelsModel;
+//        List<HotelsModel> hotelsModelList = new ArrayList<>();
+//        hotelsModel = new HotelsModel("title",
+//            "address",
+//            "phone",
+//            "href",
+//            1,
+//            1.0,1l
+//        );
+//        hotelsModelList.add(hotelsModel);
+//        recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
+        ReadJsonDataTravel1 readJsonDataTravel1=new ReadJsonDataTravel1();
+        readJsonDataTravel1.execute("http://3.82.158.167/api/events");
+        Log.d("size3",String.valueOf(hotelsModelList.size()));
 
 
        // String uri = API_LINK_V2 + "get-places/" + latitude + "/" + longitude + "/accommodation";
@@ -271,8 +275,8 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 //                            Log.e("ERROR", "Message : " + e.getMessage());
 //                        }
 
-                           ReadJsonDataTravel readJson =new ReadJsonDataTravel();
-                            readJson.execute(uri);
+                        //   ReadJsonDataTravel readJson =new ReadJsonDataTravel();
+                          //  readJson.execute(uri);
 
                     } else {
                         Log.e("ERROR", "Network error");
@@ -358,7 +362,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
     public class HotelsAdapter extends RecyclerView.Adapter<HotelsAdapter.HotelsViewHolder> {
 
         private final Context mContext;
-        private List<HotelsModel> mHotelsModelList;
+        private List<HotelsModel> mHotelsModelList=new ArrayList<>();
 
         HotelsAdapter(Context context, List<HotelsModel> mHotelsModelList) {
             this.mContext = context;
@@ -596,6 +600,64 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                         array.getJSONObject(i).getString("id")));
                 }
 
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public class ReadJsonDataTravel1 extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            StringBuilder content = new StringBuilder();
+            try {
+                java.net.URL url = new URL(strings[0]);
+                Log.d("ReadJson", "URL done");
+                InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    content.append(line);
+                }
+                bufferedReader.close();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return content.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+
+            super.onPostExecute(s);
+
+            Log.d("ReadJson", s+"12321312312312");
+            mSearchCities = new ArrayList<>();
+
+            try {
+                JSONObject obj = new JSONObject(s);
+                JSONArray array = obj.getJSONArray("data");
+                hotelsModelList = new ArrayList<>();
+                Log.d("size1",String.valueOf(array.length()));
+                for (int i = 0; i < array.length(); i++) {
+
+
+                    HotelsModel hotelsModel;
+
+                    hotelsModel = new HotelsModel(array.getJSONObject(i).getString("name"),
+                        array.getJSONObject(i).getString("place"),
+                        "phone",
+                        "href",
+                        1,
+                        1.0,1l
+                    );
+                    hotelsModelList.add(hotelsModel);
+                    recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
+                }
+             Log.d("size",String.valueOf(hotelsModelList.size()));
 
             } catch (JSONException e) {
                 e.printStackTrace();
