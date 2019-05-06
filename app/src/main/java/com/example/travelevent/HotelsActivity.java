@@ -658,6 +658,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
             try {
                 JSONObject obj = new JSONObject(s);
                 JSONArray array = obj.getJSONArray("data");
+
                 hotelsModelList = new ArrayList<>();
                 Log.d("size1",String.valueOf(array.length()));
                 for (int i = 0; i < array.length(); i++) {
