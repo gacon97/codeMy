@@ -47,6 +47,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -409,7 +410,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 //                                "," + longitude));
 //                        mContext.startActivity(browserIntent);
                         int travelid =
-                            mHotelsModelList.get(position).getDistance();
+                            mHotelsModelList.get(position).getTravelid();
 
                         browserIntent = MapsActivity.getStartIntent(mActivity);
                         browserIntent.putExtra("travelid",travelid);
@@ -516,9 +517,18 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
         private int mDistance;
         private double mLatitude;
         private double mLongitude;
+        private int travelid;
+
+        public int getTravelid() {
+            return travelid;
+        }
+
+        public void setTravelid(int travelid) {
+            this.travelid = travelid;
+        }
 
         HotelsModel(String mTitle, String mAddress, String mPhone, String mHref, int mDistance,
-                    double mLatitude, double mLongitude) {
+                    double mLatitude, double mLongitude, int travelid) {
             this.mTitle = mTitle;
             this.mAddress = mAddress;
             this.mPhone = mPhone;
@@ -526,6 +536,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
             this.mDistance = mDistance;
             this.mLatitude = mLatitude;
             this.mLongitude = mLongitude;
+            this.travelid=travelid;
         }
 
         public String getTitle() {
@@ -653,14 +664,15 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 
 
                     HotelsModel hotelsModel;
-
+                    Random random=new Random();
                     hotelsModel = new HotelsModel(array.getJSONObject(i).getString("name"),
                         array.getJSONObject(i).getString("place"),
                         "phone",
                         "href",
-                        array.getJSONObject(i).getInt("travel_id"),
-                        1.0,1l
-                    );
+                        1000+random.nextInt(10000)
+                       ,
+                        1.0,1l, array.getJSONObject(i).getInt("travel_id"));
+
                     hotelsModelList.add(hotelsModel);
                     recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
                 }
