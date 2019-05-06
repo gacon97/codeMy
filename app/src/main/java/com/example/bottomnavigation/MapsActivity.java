@@ -2,6 +2,7 @@ package com.example.bottomnavigation;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,6 +30,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.R;
+import com.example.travelevent.CompassActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -57,7 +59,7 @@ import java.util.List;
 
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
+    private int idevent;
     private GoogleMap mMap;
     private UiSettings mUiSettings;
     LocationManager locationManager;
@@ -80,6 +82,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        idevent=this.getIntent().getIntExtra("travelid",0);
         getPermissionLocation();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "Map is not ready! Access your permission", Toast.LENGTH_SHORT).show();
@@ -659,5 +662,72 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void hideBottomSheet()
     {
         bottomSheetBehavior.setState(bottomSheetBehavior.STATE_HIDDEN);
+    }
+    public class ReadJsonDataTravelEvent extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            StringBuilder content = new StringBuilder();
+            try {
+                java.net.URL url = new URL(strings[0]);
+                Log.d("ReadJson", "URL done");
+                InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    content.append(line);
+                }
+                bufferedReader.close();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return content.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.d("ReadJson", "Chay load");
+            Log.d("ReadJson", s);
+            travelList = new ArrayList<>();
+
+            try {
+                JSONObject obj = new JSONObject(s);
+                JSONArray array = obj.getJSONArray("data");
+                for (int i = 0; i < array.length(); i++) {
+                    if(array.getJSONObject(i).getInt("id")==idevent) {
+                        int id = array.getJSONObject(i).getInt("id");
+                        String name = array.getJSONObject(i).getString("name");
+                        String place = array.getJSONObject(i).getString("place");
+                        String feature = array.getJSONObject(i).getString("feature");
+                        String category_id = array.getJSONObject(i).getString("category_id");
+                        String lat = array.getJSONObject(i).getString("lat");
+                        String lng = array.getJSONObject(i).getString("lng");
+                        String created_at = array.getJSONObject(i).getString("created_at");
+                        String updated_at = array.getJSONObject(i).getString("updated_at");
+                        String deleted_at = array.getJSONObject(i).getString("deleted_at");
+
+                        Travel travel = new Travel(id, name, place, feature, category_id, Double.parseDouble(lat), Double.parseDouble(lng), created_at, updated_at, deleted_at);
+                        travelList.add(travel);
+                    }
+                }
+                for (int i = 0; i < travelList.size(); i++) {
+                    Log.d("ReadJson", "--------------------------");
+                    Log.d("ReadJson", travelList.get(i).getName());
+                    LatLng location = new LatLng(travelList.get(i).getLat(), travelList.get(i).getLng());
+                    addMarker(location, travelList.get(i).getName());
+                    ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
+                    readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public static Intent getStartIntent(Context context) {
+        Intent intent = new Intent(context, CompassActivity.class);
+        return intent;
     }
 }

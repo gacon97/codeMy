@@ -1,5 +1,6 @@
 package com.example.travelevent;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -79,6 +80,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
     TextView textView;
     @BindView(R.id.layout)
     LinearLayout layout;
+    private Activity mActivity;
 
     private Handler mHandler;
     private String mToken;
@@ -147,7 +149,6 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 //        recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
         ReadJsonDataTravel1 readJsonDataTravel1=new ReadJsonDataTravel1();
         readJsonDataTravel1.execute("http://3.82.158.167/api/events");
-        Log.d("size3",String.valueOf(hotelsModelList.size()));
 
 
        // String uri = API_LINK_V2 + "get-places/" + latitude + "/" + longitude + "/accommodation";
@@ -398,14 +399,20 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                 holder.map.setOnClickListener(view -> {
                     Intent browserIntent;
                     try {
-                        Double latitude =
-                                mHotelsModelList.get(position).getLatitude();
-                        Double longitude =
-                                mHotelsModelList.get(position).getLongitude();
-                        browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps?q=" +
-                                mHotelsModelList.get(position).getTitle() +
-                                "+(name)+@" + latitude +
-                                "," + longitude));
+//                        Double latitude =
+//                                mHotelsModelList.get(position).getLatitude();
+//                        Double longitude =
+//                                mHotelsModelList.get(position).getLongitude();
+//                        browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps?q=" +
+//                                mHotelsModelList.get(position).getTitle() +
+//                                "+(name)+@" + latitude +
+//                                "," + longitude));
+//                        mContext.startActivity(browserIntent);
+                        int travelid =
+                            mHotelsModelList.get(position).getDistance();
+
+                        browserIntent = MapsActivity.getStartIntent(mActivity);
+                        browserIntent.putExtra("travelid",travelid);
                         mContext.startActivity(browserIntent);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -651,7 +658,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
                         array.getJSONObject(i).getString("place"),
                         "phone",
                         "href",
-                        1,
+                        array.getJSONObject(i).getInt("travel_id"),
                         1.0,1l
                     );
                     hotelsModelList.add(hotelsModel);
