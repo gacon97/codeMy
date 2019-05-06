@@ -13,6 +13,11 @@ public class Travel {
     private String created_at;
     private String updated_at;
     private String deleteted_at;
+    private String name_event;
+    private String top_pic_event;
+    private String start_time_event;
+    private String end_time_event;
+    private String content_envent;
     private ArrayList<String> imageUrl;
 
     public Travel(int id, String name, String place, String feature, String category_id, double lat, double lng, String created_at, String updated_at, String deleteted_at) {
@@ -123,5 +128,45 @@ public class Travel {
     public void addUrlImage(String s)
     {
         imageUrl.add(s);
+    }
+
+    public String getName_event() {
+        return name_event;
+    }
+
+    public void setName_event(String name_event) {
+        this.name_event = name_event;
+    }
+
+    public String getTop_pic_event() {
+        return top_pic_event;
+    }
+
+    public void setTop_pic_event(String top_pic_event) {
+        this.top_pic_event = top_pic_event;
+    }
+
+    public String getStart_time_event() {
+        return start_time_event;
+    }
+
+    public void setStart_time_event(String start_time_event) {
+        this.start_time_event = start_time_event;
+    }
+
+    public String getEnd_time_event() {
+        return end_time_event;
+    }
+
+    public void setEnd_time_event(String end_time_event) {
+        this.end_time_event = end_time_event;
+    }
+
+    public String getContent_envent() {
+        return content_envent;
+    }
+
+    public void setContent_envent(String content_envent) {
+        this.content_envent = content_envent;
     }
 }

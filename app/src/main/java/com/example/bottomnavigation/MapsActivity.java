@@ -1,10 +1,7 @@
 package com.example.bottomnavigation;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -47,7 +44,6 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -265,8 +261,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Log.d("ReadJson", travelList.get(i).getName());
                     LatLng location = new LatLng(travelList.get(i).getLat(), travelList.get(i).getLng());
                     addMarker(location, travelList.get(i).getName());
+
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
                     readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images");
+                    ReadJsonEventTravel readEventJson = new ReadJsonEventTravel(travelList.get(i));
+                    readEventJson.execute("http://3.82.158.167/api/events/"+travelList.get(i).getId());
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -325,25 +324,64 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+    public class ReadJsonEventTravel extends AsyncTask<String, Void, String> {
+        private Travel t;
 
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap bmp = null;
+        public ReadJsonEventTravel(Travel t)
+        {
+            this.t = t;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            StringBuilder content = new StringBuilder();
             try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                bmp = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
+                java.net.URL url = new URL(strings[0]);
+                Log.d("ReadJson", "URL done");
+                InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    content.append(line);
+                }
+                bufferedReader.close();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-            return bmp;
+            return content.toString();
         }
-        protected void onPostExecute(Bitmap result) {
-            ImageView imageTravel = (ImageView)findViewById(R.id.imageTravel1);
-            imageTravel.setImageBitmap(result);
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.d("ReadJson", "Chay load");
+            Log.d("ReadJson", s);
+
+            try {
+                    JSONObject obj = new JSONObject(s);
+                    JSONObject o = obj.getJSONObject("data");
+
+
+                        String name = o.getString("name");
+                        String topic = o.getString("topic");
+                        String start_time = o.getString("start_time");
+                        String end_time = o.getString("end_time");
+                        String content = o.getString("content");
+
+                        t.setContent_envent(content);
+                    t.setEnd_time_event(end_time);
+                    t.setStart_time_event(start_time);
+                    t.setTop_pic_event(topic);
+                    t.setName_event(name);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
+
 
     public void setElementView()
     {
@@ -448,17 +486,42 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         title_travel.setText(markerClicked.getTitle());
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED:  //Da mo rong
-                        ImageView imageTravel = (ImageView)findViewById(R.id.imageTravel1);
+                        ImageView imageTravel1 = (ImageView)findViewById(R.id.imageTravel1);
+                        ImageView imageTravel2 = (ImageView)findViewById(R.id.imageTravel2);
+                        ImageView imageTravel3 = (ImageView)findViewById(R.id.imageTravel3);
+                        ImageView imageTravel4 = (ImageView)findViewById(R.id.imageTravel4);
+                        ImageView imageTravel5 = (ImageView)findViewById(R.id.imageTravel5);
                         TextView discrible_text = (TextView)findViewById(R.id.discrible_travel);
+                        TextView discrible_event = (TextView)findViewById(R.id.event_content);
+                        TextView start_time = (TextView)findViewById(R.id.event_start_time);
+                        TextView end_time = (TextView)findViewById(R.id.event_end_time);
                         for (int n = 0; n < travelList.size(); n++) {
                             if (markerClicked.getTitle().equals(travelList.get(n).getName())==true) {
-//                                DownloadImageTask loadImage = new DownloadImageTask();
-//                                loadImage.execute(travelList.get(n).getImageUrl().get(0));
                                 Glide.
                                     with(MapsActivity.this)
                                     .load(travelList.get(n).getImageUrl().get(0))
-                                    .into(imageTravel);
+                                    .into(imageTravel1);
+                                Glide.
+                                    with(MapsActivity.this)
+                                    .load(travelList.get(n).getImageUrl().get(1))
+                                    .into(imageTravel2);
+                                Glide.
+                                    with(MapsActivity.this)
+                                    .load(travelList.get(n).getImageUrl().get(2))
+                                    .into(imageTravel3);
+                                Glide.
+                                    with(MapsActivity.this)
+                                    .load(travelList.get(n).getImageUrl().get(3))
+                                    .into(imageTravel4);
+                                Glide.
+                                    with(MapsActivity.this)
+                                    .load(travelList.get(n).getImageUrl().get(4))
+                                    .into(imageTravel5);
                                 discrible_text.setText(travelList.get(n).getFeature());
+
+                                discrible_event.setText(travelList.get(n).getContent_envent());
+                                start_time.setText("Thời gian bắt đầu: "+travelList.get(n).getStart_time_event());
+                                end_time.setText("Thời gian kết thúc: "+travelList.get(n).getEnd_time_event());
                             }
                         }
                         break;
