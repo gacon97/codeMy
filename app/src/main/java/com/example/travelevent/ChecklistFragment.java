@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,6 +30,15 @@ import android.widget.TextView;
 
 import com.example.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,6 +87,7 @@ public class ChecklistFragment extends Fragment implements TravelmateSnackbars,
     }
 
     public static ChecklistFragment newInstance() {
+
         ChecklistFragment fragment = new ChecklistFragment();
         return fragment;
     }
@@ -83,6 +95,8 @@ public class ChecklistFragment extends Fragment implements TravelmateSnackbars,
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+//       ReadJsonDataTravel1 readJsonDataTravel1=new ReadJsonDataTravel1();
+//        readJsonDataTravel1.execute("http://3.82.158.167/api/events");
         mChecklistView = inflater.inflate(R.layout.fragment_check_list, container, false);
 
         ButterKnife.bind(this, mChecklistView);
@@ -98,6 +112,7 @@ public class ChecklistFragment extends Fragment implements TravelmateSnackbars,
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
@@ -136,7 +151,7 @@ public class ChecklistFragment extends Fragment implements TravelmateSnackbars,
 
 
     private void attachAdapter() {
-
+        Log.d("sieumaytinh","sieumaytinh");
         ChecklistAdapter pendingAdapter = new ChecklistAdapter(mActivity, mViewModel, true);
         pendingAdapter.setEventListener(ChecklistFragment.this);
         mPendingRecycler.setLayoutManager(new LinearLayoutManager(mActivity));
@@ -154,10 +169,10 @@ public class ChecklistFragment extends Fragment implements TravelmateSnackbars,
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
+        mDatabase.clearAllTables();
         //First time users
-        String isAlreadyAdded = sharedPreferences.getString(IS_ADDED_INDB, "null");
-        if (isAlreadyAdded.equals("null")) {
+       // String isAlreadyAdded = sharedPreferences.getString(IS_ADDED_INDB, "null");
+       // if (isAlreadyAdded.equals("null")) {
             for (int i = 0; i < BASE_TASKS.size(); i++) {
                 ChecklistItem checklistItem = new ChecklistItem(BASE_TASKS.get(i), false, i);
                 mDisposable.add(mViewModel.insertItem(checklistItem)
@@ -168,7 +183,7 @@ public class ChecklistFragment extends Fragment implements TravelmateSnackbars,
             }
             editor.putString(IS_ADDED_INDB, "yes");
             editor.apply();
-        }
+  //      }
 
         mDisposable.add(mViewModel.getPendingItems()
                 .subscribeOn(Schedulers.io())
@@ -291,6 +306,7 @@ public class ChecklistFragment extends Fragment implements TravelmateSnackbars,
     public void onStartDrag(ChecklistAdapter.ViewHolder holder) {
         mTouchHelper.startDrag(holder);
     }
+
 }
 
 
