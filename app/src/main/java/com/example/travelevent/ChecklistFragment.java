@@ -203,8 +203,8 @@ public class ChecklistFragment extends Fragment implements TravelmateSnackbars,
                     finishedAdapter.updateChecklist(items);
                 })
         );
+        // Subscribe to complete list for the widge
 
-        // Subscribe to complete list for the widget
         mDisposable.add(mViewModel.getSortedItems()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
