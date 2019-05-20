@@ -6,7 +6,11 @@
     <string name="title_favorite">Favorites</string>
     <string name="title_event">Events</string>
     <string name="google_map_api_key">
+<<<<<<< HEAD
 AIzaSyD5wfF8ucQahqOTYtE6ctJk16L8naXsajU
+=======
+AIzaSyDacV1GmVlnnnoBEHCnxlFY4cQF5axyVpE
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
     </string>
 
     //////////////////////////////////
@@ -376,6 +380,13 @@ AIzaSyD5wfF8ucQahqOTYtE6ctJk16L8naXsajU
     <string name="check_internet">Please check your internet connectivity</string>
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
     <!-- Currency Convertor Chart Time-Series Spinner options -->
     <string name="time_series_prompt">Time Interval</string>
     <string name="verify_email">Verify Email</string>
@@ -393,6 +404,9 @@ AIzaSyD5wfF8ucQahqOTYtE6ctJk16L8naXsajU
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_widget">Add World Clock Widget</string>
     <string name="configure">Select Timezone For Clock Widget</string>
+<<<<<<< HEAD
     <string name="web_client_id">266672563458-sph3lmgfp2a3uk95e03tov6d1n9i3pri.apps.googleusercontent.com</string>
     <string name="loading">Loading...</string>
+=======
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
 </resources>

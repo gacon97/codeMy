@@ -1,8 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.gms:play-services-fido-license:12.0.1@aar">
     <CLASSES>
+<<<<<<< HEAD
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-fido-license-12.0.1.aar/212f25699452a16359c921dd7875a980/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-fido-license-12.0.1.aar/212f25699452a16359c921dd7875a980/jars/classes.jar!/" />
+=======
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-fido-license-12.0.1.aar/7d018e1b4bccaf525483b590c0263536/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-fido-license-12.0.1.aar/7d018e1b4bccaf525483b590c0263536/jars/classes.jar!/" />
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
     </CLASSES>
     <JAVADOC />
     <SOURCES />

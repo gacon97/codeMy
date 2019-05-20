@@ -8,6 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.R;
+<<<<<<< HEAD
+=======
+import com.google.android.gms.common.GoogleApiAvailability;
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
 
 public class FragmentMap extends Fragment {
 

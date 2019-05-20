@@ -12,6 +12,10 @@ import android.widget.TextView;
 import android.support.v4.app.FragmentTransaction;
 
 import com.example.R;
+<<<<<<< HEAD
+=======
+import com.example.bottomnavigation.BottomNavigationBehavior;
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
 import com.example.travelevent.UtilitiesFragment;
 
 public class MainActivity extends AppCompatActivity {

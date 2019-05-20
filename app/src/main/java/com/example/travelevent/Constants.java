@@ -1,7 +1,25 @@
 package com.example.travelevent;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+import android.os.AsyncTask;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
 
 /**
  * Created by swati on 11/10/15.
@@ -36,6 +54,7 @@ public class Constants {
 
     public static final List<String> BASE_TASKS = new ArrayList<String>() {
         {
+<<<<<<< HEAD
             add("Bags");
             add("Keys");
             add("Charger");
@@ -43,6 +62,10 @@ public class Constants {
             add("Clothes");
             add("Food");
             add("Tickets");
+=======
+
+
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
         }
     };
 
@@ -104,4 +127,9 @@ public class Constants {
     //Min number of launches before Quotes
     public static final int LAUNCHES_UNTIL_SHOW_QUOTE = 1;
 
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8

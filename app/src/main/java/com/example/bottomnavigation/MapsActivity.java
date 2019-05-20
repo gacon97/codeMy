@@ -65,7 +65,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private int idevent;
     private GoogleMap mMap;
@@ -98,11 +101,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+<<<<<<< HEAD
         idevent = this.getIntent().getIntExtra("travelid", 0);
 //        Bundle bundle = this.getIntent().getExtras();
 //        if (bundle != null) {
 //            user = (User) bundle.getSerializable("user");
 //        }
+=======
+        idevent=this.getIntent().getIntExtra("travelid",0);
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
         getPermissionLocation();
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser()!=null)
@@ -795,6 +802,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void hideBottomSheet() {
         bottomSheetBehavior.setState(bottomSheetBehavior.STATE_HIDDEN);
     }
+<<<<<<< HEAD
 
     private void showImageChooser() {
         Intent intent = new Intent();
@@ -842,6 +850,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+=======
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
     public class ReadJsonDataTravelEvent extends AsyncTask<String, Void, String> {
 
         @Override
@@ -876,7 +886,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 JSONObject obj = new JSONObject(s);
                 JSONArray array = obj.getJSONArray("data");
                 for (int i = 0; i < array.length(); i++) {
+<<<<<<< HEAD
                     if (array.getJSONObject(i).getInt("id") == idevent) {
+=======
+                    if(array.getJSONObject(i).getInt("id")==idevent) {
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
                         int id = array.getJSONObject(i).getInt("id");
                         String name = array.getJSONObject(i).getString("name");
                         String place = array.getJSONObject(i).getString("place");
@@ -898,18 +912,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng location = new LatLng(travelList.get(i).getLat(), travelList.get(i).getLng());
                     addMarker(location, travelList.get(i).getName());
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
+<<<<<<< HEAD
                     readImageJson.execute("http://3.82.158.167/api/travel/" + travelList.get(i).getId() + "/images");
+=======
+                    readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images");
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, CompassActivity.class);
         return intent;
     }
+<<<<<<< HEAD
 
 //    public class ReadJsonNhung extends AsyncTask<String, Void, String> {
 //        @Override
@@ -956,4 +978,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        }
 //    }
 
+=======
+>>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
 }
