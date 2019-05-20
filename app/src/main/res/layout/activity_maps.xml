@@ -40,7 +40,7 @@
         <android.support.v4.widget.NestedScrollView
             android:id="@+id/bottom_sheet"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="500dp"
             android:background="@color/bottom_sheet_color"
             map:layout_behavior="@string/bottom_sheet_behavior"
             map:behavior_hideable="true"
@@ -74,6 +74,44 @@
                 android:paddingTop="10dp"
                 android:textSize="15dp"
                 android:gravity="center" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                >
+                <ImageView
+                    android:id="@+id/imageLike"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="left"
+                    android:background="@drawable/ic_thumb_up_dislike_24dp" />
+
+                <TextView
+                    android:id="@+id/text_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="0"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="right" />
+
+                <Button
+                    android:id="@+id/login_logout"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/custom_button"
+                    android:text="Login"
+                    android:textSize="10dp"
+                    android:textColor="@color/icon_map_corlor"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="200dp"/>
+
+            </LinearLayout>
 
                 <TextView
                 android:id="@+id/image_t"
@@ -129,35 +167,60 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:text="Sự kiện"/>
+                android:text="Sự kiện"
+                    android:paddingLeft="@dimen/padding_left_text"/>
 
                 <TextView
                     android:id="@+id/event_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:gravity="center" />
+                    android:textSize="15dp"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/padding_left_text"/>
 
                 <TextView
                     android:id="@+id/event_start_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
+                    android:gravity="left"
+                    android:textColor="#72FC73"
                     android:textStyle="bold"
-                    android:gravity="center" />
+                    android:paddingLeft="@dimen/padding_left_text"/>
 
                 <TextView
                     android:id="@+id/event_end_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
+                    android:textSize="15dp"
+                    android:gravity="left"
+                    android:textColor="#FA7373"
+                    android:textStyle="bold"
+                    android:paddingLeft="@dimen/padding_left_text"
+                    />
+
+                <TextView
+                    android:id="@+id/title_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:text="Chia sẻ ảnh của bạn tại đây"
+                    android:textColor="#2145F5"
+                    />
 
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:id="@+id/image_post"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/ic_camera_alt_blue_24dp"
+                    android:layout_gravity="center"/>
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>

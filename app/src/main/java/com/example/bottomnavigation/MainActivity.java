@@ -6,17 +6,13 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v4.app.FragmentTransaction;
-import android.widget.ViewFlipper;
 
-import com.example.bottomnavigation.BottomNavigationBehavior;
+import com.example.R;
+import com.example.travelevent.UtilitiesFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_event:
-                    selectFragment = new FragmentEvent();
+                    selectFragment = new UtilitiesFragment();
                     loadFragment(selectFragment);
                     return true;
             }
@@ -76,3 +72,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+

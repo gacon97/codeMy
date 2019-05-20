@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
@@ -16,7 +14,6 @@
         android:layout_above="@id/navigation"
         >
     </FrameLayout>
-
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -32,3 +29,4 @@
         app:menu="@menu/navigation" />
 
 </android.support.design.widget.CoordinatorLayout>
+

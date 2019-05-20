@@ -3,12 +3,11 @@ package com.example.bottomnavigation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.common.GoogleApiAvailability;
+import com.example.R;
 
 public class FragmentMap extends Fragment {
 

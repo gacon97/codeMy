@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.example.bottomnavigation.Movie;
 import com.example.bottomnavigation.MyApplication;
-import com.example.bottomnavigation.R;
+import com.example.R;
 
 /**
  * A simple {@link Fragment} subclass.
