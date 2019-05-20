@@ -212,7 +212,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void getTravelList(String url)
     {
-        ReadJsonDataTravel readJson =new ReadJsonDataTravel();
+        ReadJsonDataTravel readJson = new ReadJsonDataTravel();
         readJson.execute(url);
     }
 
@@ -269,6 +269,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Log.d("ReadJson", travelList.get(i).getName());
                     LatLng location = new LatLng(travelList.get(i).getLat(), travelList.get(i).getLng());
                     addMarker(location, travelList.get(i).getName());
+
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
                     readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images");
                 }

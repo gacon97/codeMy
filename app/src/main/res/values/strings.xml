@@ -6,7 +6,7 @@
     <string name="title_favorite">Favorites</string>
     <string name="title_event">Events</string>
     <string name="google_map_api_key">
-AIzaSyDacV1GmVlnnnoBEHCnxlFY4cQF5axyVpE
+AIzaSyBpZzea8rgMlFvdkUQz5GqWzdmv7BCsFRg
     </string>
 
     //////////////////////////////////
@@ -397,4 +397,11 @@ AIzaSyDacV1GmVlnnnoBEHCnxlFY4cQF5axyVpE
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_widget">Add World Clock Widget</string>
     <string name="configure">Select Timezone For Clock Widget</string>
+    <integer-array name="img_id_arr">
+        <item>@drawable/slide1</item>
+        <item>@drawable/slide2</item>
+        <item>@drawable/slide3</item>
+    </integer-array>
+    <string name="search">Travel</string>
+    <string name="item_travel_category">Beach</string>
 </resources>
