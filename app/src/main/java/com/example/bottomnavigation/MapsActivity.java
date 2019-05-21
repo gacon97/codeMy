@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -20,6 +21,8 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -27,13 +30,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.R;
-import com.example.travelevent.CompassActivity;
+//import com.example.travelevent.CompassActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -48,6 +50,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -65,10 +72,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private int idevent;
     private GoogleMap mMap;
@@ -84,10 +87,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FloatingActionButton discover_fab, fab_one, fab_two, fab_three, fab_four, fab_five;
     private Button clearButton, login_logout;
     private TextView text_fab_1, text_fab_2, text_fab_3, text_fab_4, text_fab_5;
-    private TextView title_travel, title_comment;
+    private TextView title_travel, title_comment, text_like;
     private BottomSheetBehavior bottomSheetBehavior;
     private Marker markerClicked;
-    private ImageView like_image, upload_image;
+    private ImageView like_image, upload_image, imageUpload1, imageUpload2, imageUpload3, imageUpload4, imageUpload5;
     Animation move_down_f1, move_down_f2, move_down_f3, move_down_f4, move_down_f5;
     Animation move_back_f1, move_back_f2, move_back_f3, move_back_f4, move_back_f5;
     private boolean discoverButton = false;
@@ -95,21 +98,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     String profileImageUrl;
     private FirebaseAuth mAuth;
     private int current_id_travel;
+    private int count_image = 1;
+    private int like = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-<<<<<<< HEAD
-        idevent = this.getIntent().getIntExtra("travelid", 0);
 //        Bundle bundle = this.getIntent().getExtras();
 //        if (bundle != null) {
 //            user = (User) bundle.getSerializable("user");
 //        }
-=======
         idevent=this.getIntent().getIntExtra("travelid",0);
->>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
         getPermissionLocation();
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser()!=null)
@@ -144,6 +145,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public boolean onMarkerClick(Marker marker) {
                 collapseBottomSheet();
                 markerClicked = marker;
+                count_image=1;
                 return false;
             }
         });
@@ -426,11 +428,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         fab_four = (FloatingActionButton) findViewById(R.id.fab_four);
         fab_five = (FloatingActionButton) findViewById(R.id.fab_five);
 
+        imageUpload1 = (ImageView) findViewById(R.id.image_upload1);
+        imageUpload2 = (ImageView) findViewById(R.id.image_upload2);
+        imageUpload3 = (ImageView) findViewById(R.id.image_upload3);
+        imageUpload4 = (ImageView) findViewById(R.id.image_upload4);
+        imageUpload5 = (ImageView) findViewById(R.id.image_upload5);
+
         text_fab_1 = (TextView) findViewById(R.id.text_fab_one);
         text_fab_2 = (TextView) findViewById(R.id.text_fab_two);
         text_fab_3 = (TextView) findViewById(R.id.text_fab_three);
         text_fab_4 = (TextView) findViewById(R.id.text_fab_four);
         text_fab_5 = (TextView) findViewById(R.id.text_fab_five);
+        text_like = (TextView) findViewById(R.id.text_like);
 
         like_image = (ImageView) findViewById(R.id.imageLike);
         upload_image = (ImageView) findViewById(R.id.image_post);
@@ -554,7 +563,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         like_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (like == 0)
+                {
+                    like =1;
+                    like_image.setImageResource(R.drawable.ic_thumb_up_blue_24dp);
+                    text_like.setText("1");
+                }
+                else {
+                    like =0;
+                    like_image.setImageResource(R.drawable.ic_thumb_up_black_24dp);
+                    text_like.setText("0");
+                }
             }
         });
 
@@ -581,6 +600,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         ImageView imageTravel3 = (ImageView) findViewById(R.id.imageTravel3);
                         ImageView imageTravel4 = (ImageView) findViewById(R.id.imageTravel4);
                         ImageView imageTravel5 = (ImageView) findViewById(R.id.imageTravel5);
+
                         TextView discrible_text = (TextView) findViewById(R.id.discrible_travel);
                         TextView discrible_event = (TextView) findViewById(R.id.event_content);
                         TextView start_time = (TextView) findViewById(R.id.event_start_time);
@@ -613,6 +633,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 start_time.setText("Thời gian bắt đầu: " + travelList.get(n).getStart_time_event());
                                 end_time.setText("Thời gian kết thúc: " + travelList.get(n).getEnd_time_event());
                                 current_id_travel = travelList.get(n).getId();
+                                GetImageUpload(current_id_travel+"/"+1+".jpg", imageUpload1);
+                                GetImageUpload(current_id_travel+"/"+2+".jpg", imageUpload2);
+                                GetImageUpload(current_id_travel+"/"+3+".jpg", imageUpload3);
+                                GetImageUpload(current_id_travel+"/"+4+".jpg", imageUpload4);
+                                GetImageUpload(current_id_travel+"/"+5+".jpg", imageUpload5);
+                                break;
                             }
                         }
                         break;
@@ -802,7 +828,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void hideBottomSheet() {
         bottomSheetBehavior.setState(bottomSheetBehavior.STATE_HIDDEN);
     }
-<<<<<<< HEAD
 
     private void showImageChooser() {
         Intent intent = new Intent();
@@ -811,9 +836,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         startActivityForResult(Intent.createChooser(intent, "Chọn ảnh upload"), CHOOSE_IMAGE);
     }
 
-    private void uploadImageToFirebaseStorage(int idTravel) {
+    private void uploadImageToFirebaseStorage(int idTravel, int count_image) {
         StorageReference profileImageRef =
-            FirebaseStorage.getInstance().getReference("upload_image/" + idTravel+"_"+System.currentTimeMillis() + ".jpg");
+            FirebaseStorage.getInstance().getReference(idTravel+"/"+count_image+".jpg");
 
         if (uriProfileImage != null) {
             profileImageRef.putFile(uriProfileImage)
@@ -833,6 +858,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    public void GetImageUpload(String url, ImageView image)
+    {
+        //-------------------------
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+        StorageReference islandRef = storageRef.child(url);
+        final long ONE_MEGABYTE = 1024 * 1024;
+        islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                image.setImageBitmap(bmp);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -842,16 +888,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uriProfileImage);
                 upload_image.setImageBitmap(bitmap);
-                uploadImageToFirebaseStorage(current_id_travel);
+                uploadImageToFirebaseStorage(current_id_travel, count_image);
+                count_image++;
+                if (count_image>5)
+                {
+                    count_image =1;
+                }
 
+                GetImageUpload(current_id_travel+"/"+1+".jpg", imageUpload1);
+                GetImageUpload(current_id_travel+"/"+2+".jpg", imageUpload2);
+                GetImageUpload(current_id_travel+"/"+3+".jpg", imageUpload3);
+                GetImageUpload(current_id_travel+"/"+4+".jpg", imageUpload4);
+                GetImageUpload(current_id_travel+"/"+5+".jpg", imageUpload5);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-=======
->>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
     public class ReadJsonDataTravelEvent extends AsyncTask<String, Void, String> {
 
         @Override
@@ -886,11 +940,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 JSONObject obj = new JSONObject(s);
                 JSONArray array = obj.getJSONArray("data");
                 for (int i = 0; i < array.length(); i++) {
-<<<<<<< HEAD
                     if (array.getJSONObject(i).getInt("id") == idevent) {
-=======
-                    if(array.getJSONObject(i).getInt("id")==idevent) {
->>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
                         int id = array.getJSONObject(i).getInt("id");
                         String name = array.getJSONObject(i).getString("name");
                         String place = array.getJSONObject(i).getString("place");
@@ -912,26 +962,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng location = new LatLng(travelList.get(i).getLat(), travelList.get(i).getLng());
                     addMarker(location, travelList.get(i).getName());
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
-<<<<<<< HEAD
                     readImageJson.execute("http://3.82.158.167/api/travel/" + travelList.get(i).getId() + "/images");
-=======
-                    readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images");
->>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
-    public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, CompassActivity.class);
-        return intent;
-    }
-<<<<<<< HEAD
+//    public static Intent getStartIntent(Context context) {
+//        Intent intent = new Intent(context, CompassActivity.class);
+//        return intent;
+//    }
 
 //    public class ReadJsonNhung extends AsyncTask<String, Void, String> {
 //        @Override
@@ -978,6 +1019,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        }
 //    }
 
-=======
->>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
 }

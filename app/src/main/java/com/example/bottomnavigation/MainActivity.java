@@ -12,11 +12,7 @@ import android.widget.TextView;
 import android.support.v4.app.FragmentTransaction;
 
 import com.example.R;
-<<<<<<< HEAD
-=======
-import com.example.bottomnavigation.BottomNavigationBehavior;
->>>>>>> 8c77959935f8c0d904e6909fe24f6b43e7db79e8
-import com.example.travelevent.UtilitiesFragment;
+//import com.example.travelevent.UtilitiesFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_event:
-                    selectFragment = new UtilitiesFragment();
-                    loadFragment(selectFragment);
+//                    selectFragment = new UtilitiesFragment();
+//                    loadFragment(selectFragment);
                     return true;
             }
             return false;

@@ -86,7 +86,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_gravity="left"
                     android:background="@drawable/ic_thumb_up_dislike_24dp" />
 
@@ -109,7 +109,7 @@
                     android:textSize="10dp"
                     android:textColor="@color/icon_map_corlor"
                     android:layout_marginTop="5dp"
-                    android:layout_marginLeft="200dp"/>
+                    android:layout_marginLeft="250dp"/>
 
             </LinearLayout>
 
@@ -203,6 +203,57 @@
                     />
 
                 <TextView
+                    android:id="@+id/text_upload_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="Một số ảnh người dùng chia sẻ"
+                    android:paddingLeft="@dimen/padding_left_text"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="400dp"
+                    android:id="@+id/image_upload1"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/ic_camera_alt_blue_24dp"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="400dp"
+                    android:id="@+id/image_upload2"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/ic_camera_alt_blue_24dp"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="400dp"
+                    android:id="@+id/image_upload3"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/ic_camera_alt_blue_24dp"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="400dp"
+                    android:id="@+id/image_upload4"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/ic_camera_alt_blue_24dp"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:layout_width="350dp"
+                    android:layout_height="400dp"
+                    android:id="@+id/image_upload5"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/ic_camera_alt_blue_24dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
                     android:id="@+id/title_comment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -215,8 +266,8 @@
                     />
 
                 <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="350dp"
+                    android:layout_height="400dp"
                     android:id="@+id/image_post"
                     android:paddingTop="10dp"
                     android:src="@drawable/ic_camera_alt_blue_24dp"
