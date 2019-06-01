@@ -376,10 +376,6 @@ AIzaSyBpZzea8rgMlFvdkUQz5GqWzdmv7BCsFRg
     <string name="check_internet">Please check your internet connectivity</string>
 
 
-
-
-
-
     <!-- Currency Convertor Chart Time-Series Spinner options -->
     <string name="time_series_prompt">Time Interval</string>
     <string name="verify_email">Verify Email</string>
@@ -404,4 +400,5 @@ AIzaSyBpZzea8rgMlFvdkUQz5GqWzdmv7BCsFRg
     </integer-array>
     <string name="search">Travel</string>
     <string name="item_travel_category">Beach</string>
+    <string name="title_activity_category_travel">CategoryTravel</string>
 </resources>

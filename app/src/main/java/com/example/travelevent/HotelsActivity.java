@@ -30,8 +30,6 @@ import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.R;
 import com.example.bottomnavigation.MapsActivity;
-import com.example.bottomnavigation.Travel;
-import com.google.android.gms.maps.model.LatLng;
 
 
 import org.json.JSONArray;
@@ -54,13 +52,10 @@ import butterknife.ButterKnife;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
-import static com.example.travelevent.Constants.API_LINK_V2;
 import static com.example.travelevent.Constants.USER_TOKEN;
 
 
