@@ -124,4 +124,13 @@ public class Travel {
     {
         imageUrl.add(s);
     }
+
+    public int getSizeImage()
+    {
+        return imageUrl.size();
+    }
+    public String firstImageTravel()
+    {
+        return imageUrl.get(0);
+    }
 }

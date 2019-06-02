@@ -11,11 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.R;
-import com.example.controller.ReadJsonDataTravel;
 import com.example.model.Category;
 import com.example.bottomnavigation.ItemClickListener;
 import com.example.model.Travel;
-import com.example.model.URL;
 
 import java.util.ArrayList;
 import java.util.List;
