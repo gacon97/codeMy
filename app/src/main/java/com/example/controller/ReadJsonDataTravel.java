@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.bottomnavigation.MapsActivity;
 import com.example.home.CategoryTravel;
 import com.example.model.Travel;
+import com.example.model.URLjson;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
@@ -28,7 +29,7 @@ public class ReadJsonDataTravel extends AsyncTask<String, Void, String> {
         StringBuilder content = new StringBuilder();
         try {
             java.net.URL url = new URL(strings[0]);
-            Log.d("ReadJson", "URL done");
+            Log.d("ReadJson", "URLjson done");
             InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String line = "";
@@ -69,14 +70,13 @@ public class ReadJsonDataTravel extends AsyncTask<String, Void, String> {
                 Travel travel = new Travel(id, name, place, feature, category_id, Double.parseDouble(lat), Double.parseDouble(lng), created_at, updated_at, deleted_at);
                 travelList.add(travel);
 
-
+                ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
+                readImageJson.execute(URLjson.getURLImageTravel("" + travelList.get(i).getId()));
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        CategoryTravel categoryTravel = new CategoryTravel();
-        categoryTravel.runView(travelList);
     }
 
 }

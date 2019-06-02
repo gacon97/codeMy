@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.R;
 import com.example.bottomnavigation.ItemClickListener;
 import com.example.model.Travel;
@@ -25,10 +27,15 @@ public class CategoryTravelAdapter extends RecyclerView.Adapter<CategoryTravelVi
         this.mContext = mContext;
         this.listTravels = listTravels;
 //
-//        for (int i = 0; i < listTravels.size(); i++) {
-//            Log.d("ReadJson", "++++++++++++++++++++++++++++");
-//            Log.d("ReadJson", listTravels.get(i).getName());
-//        }
+        for (int i = 0; i < listTravels.size(); i++) {
+            Log.d("ReadJson", "++++++++++++++++++++++++++++");
+            Log.d("ReadJson", listTravels.get(i).getName());
+            Log.d("ReadJson", "++++++++++++++++++++++++++++");
+            Log.d("ReadJson", "" + listTravels.get(i).getSizeImage());
+
+        }
+
+
     }
 
     @NonNull
@@ -39,13 +46,18 @@ public class CategoryTravelAdapter extends RecyclerView.Adapter<CategoryTravelVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryTravelViewHolder categoryTravelViewHolder, int i) {
+    public void onBindViewHolder(@NonNull CategoryTravelViewHolder holder, int i) {
+//        holder.mImage.setImageResource(listTravels.get(i).);
+//        Glide.with(mContext)
+//            .load(listTravels.get(i).firstImageTravel())
+//            .into(holder.getImage());
+        holder.mTitle.setText(listTravels.get(i).getName());
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listTravels.size();
     }
 }
 class CategoryTravelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
@@ -71,4 +83,5 @@ class CategoryTravelViewHolder extends RecyclerView.ViewHolder implements View.O
     public boolean onLongClick(View v) {
         return false;
     }
+    public ImageView getImage(){ return this.mImage;}
 }

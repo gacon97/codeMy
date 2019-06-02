@@ -569,7 +569,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
             StringBuilder content = new StringBuilder();
             try {
                 java.net.URL url = new URL(strings[0]);
-                Log.d("ReadJson", "URL done");
+                Log.d("ReadJson", "URLjson done");
                 InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 String line = "";
@@ -626,7 +626,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
             StringBuilder content = new StringBuilder();
             try {
                 java.net.URL url = new URL(strings[0]);
-                Log.d("ReadJson", "URL done");
+                Log.d("ReadJson", "URLjson done");
                 InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 String line = "";
