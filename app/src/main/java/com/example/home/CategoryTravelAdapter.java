@@ -11,11 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.R;
 import com.example.bottomnavigation.ItemClickListener;
 import com.example.model.Travel;
-import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
@@ -29,9 +27,11 @@ public class CategoryTravelAdapter extends RecyclerView.Adapter<CategoryTravelVi
 //
         for (int i = 0; i < listTravels.size(); i++) {
             Log.d("ReadJson", "++++++++++++++++++++++++++++");
-            Log.d("ReadJson", listTravels.get(i).getName());
+            Log.d("Name travel", listTravels.get(i).getName());
             Log.d("ReadJson", "++++++++++++++++++++++++++++");
-            Log.d("ReadJson", "" + listTravels.get(i).getSizeImage());
+            Log.d("Size imgae travel", "" + listTravels.get(i).getSizeImage());
+            Log.d("ReadJson", "++++++++++++++++++++++++++++");
+            Log.d("First image", "" + listTravels.get(i).getImageUrl().get(0));
 
         }
 
@@ -47,11 +47,13 @@ public class CategoryTravelAdapter extends RecyclerView.Adapter<CategoryTravelVi
 
     @Override
     public void onBindViewHolder(@NonNull CategoryTravelViewHolder holder, int i) {
-//        holder.mImage.setImageResource(listTravels.get(i).);
-//        Glide.with(mContext)
-//            .load(listTravels.get(i).firstImageTravel())
-//            .into(holder.getImage());
-        holder.mTitle.setText(listTravels.get(i).getName());
+        Glide.with(mContext)
+            .load(listTravels.get(i).getImageUrl().get(0))
+            .into(holder.getImage());
+        holder.mName.setText(listTravels.get(i).getName());
+        holder.mPlace.setText(listTravels.get(i).getPlace());
+        holder.mFeature.setText(listTravels.get(i).getFeature());
+
 
     }
 
@@ -62,13 +64,17 @@ public class CategoryTravelAdapter extends RecyclerView.Adapter<CategoryTravelVi
 }
 class CategoryTravelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
     ImageView mImage;
-    TextView mTitle;
+    TextView mName;
+    TextView mPlace;
+    TextView mFeature;
     private ItemClickListener itemClickListener; // Khai báo interface
     public CategoryTravelViewHolder(@NonNull View itemView) {
         super(itemView);
 
         mImage = itemView.findViewById(R.id.imageView);
-        mTitle = itemView.findViewById(R.id.txtCategory);
+        mName = itemView.findViewById(R.id.txtName);
+        mPlace = itemView.findViewById(R.id.txtPlace);
+        mFeature = itemView.findViewById(R.id.txtFeature);
 
         itemView.setOnClickListener(this); // Mấu chốt ở đây , set sự kiên onClick cho View
         itemView.setOnLongClickListener(this); // Mấu chốt ở đây , set sự kiên onLongClick cho View
