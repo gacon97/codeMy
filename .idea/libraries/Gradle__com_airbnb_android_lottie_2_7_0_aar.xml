@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.airbnb.android:lottie:2.7.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5315bab8ec7698fad25d95923ddc1461/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c276bb5970b4ecd6fc4b87d0a0fe890d/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5315bab8ec7698fad25d95923ddc1461/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5315bab8ec7698fad25d95923ddc1461/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c276bb5970b4ecd6fc4b87d0a0fe890d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c276bb5970b4ecd6fc4b87d0a0fe890d/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
