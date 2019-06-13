@@ -1,5 +1,7 @@
 package com.example.model;
 
+import android.util.Log;
+
 public class URLjson {
     public  static  final String ip = "http://52.76.86.49/api/";
     public  static  final String rootURL = "http://52.76.86.49/";
@@ -12,6 +14,11 @@ public class URLjson {
     public static final  String getURLImageTravel(String id)
     {
         return ip + "travel/" + id + "/images";
+    }
+    public static final  String getURLSearch(String keyWord)
+    {
+
+        return ip + "search/" + keyWord;
     }
     public static final String getRootURL()
     {

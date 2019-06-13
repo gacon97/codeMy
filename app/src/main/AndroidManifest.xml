@@ -16,9 +16,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".home.Travel"
+            android:label="@string/title_activity_travel"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".home.CategoryTravel"
             android:label="@string/title_activity_category_travel"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
