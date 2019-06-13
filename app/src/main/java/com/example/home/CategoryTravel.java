@@ -15,6 +15,7 @@ import com.example.controller.ReadJsonDataTravel;
 import com.example.model.Travel;
 import com.example.model.URLjson;
 
+import java.net.URL;
 import java.util.ArrayList;
 //import com.example.bottomnavigation.R;
 
@@ -31,17 +32,33 @@ public class CategoryTravel extends AppCompatActivity {
 
         Intent intent = getIntent();
         int number = intent.getIntExtra(MyAdapter.ID_TRAVEL, 0);
+        String keyWord = getIntent().getStringExtra("KEY_WORD");
         TextView textView2 = (TextView) findViewById(R.id.id);
         textView2.setText("" + number);
 
-        getTravelList(URLjson.getURLCategoryTravel(""+number));
+        if(number != 0)
+        {
+            getTravelList(URLjson.getURLCategoryTravel(""+number));
+        }
+        else if(keyWord != null)
+        {
+            Log.d("URL", keyWord);
+            getTravelList(URLjson.getURLSearch(keyWord));
+        }
+        else
+        {
+            getTravelList(URLjson.getURLCategoryTravel(""+number));
+
+            Log.d("URL", "khong cos du lieu" + keyWord);
+
+        }
 
         Thread thread = new Thread(){
             @Override
             public void run() {
                 try {
                     synchronized (this) {
-                        wait(5000);
+                        wait(3000);
 
                         runOnUiThread(new Runnable() {
                             @Override

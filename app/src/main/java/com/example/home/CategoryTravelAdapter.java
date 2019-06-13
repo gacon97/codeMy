@@ -1,6 +1,8 @@
 package com.example.home;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.R;
@@ -54,7 +57,23 @@ public class CategoryTravelAdapter extends RecyclerView.Adapter<CategoryTravelVi
         holder.mPlace.setText(listTravels.get(i).getPlace());
         holder.mFeature.setText(listTravels.get(i).getFeature());
 
+        holder.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onClick(View view, int position, boolean isLongClick) {
+                if (isLongClick)
+                    Toast.makeText(mContext, "Long Click: " + listTravels.get(position).getName(), Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(mContext, " click " + listTravels.get(position).getName(), Toast.LENGTH_SHORT).show();
 
+                    Intent intent = new Intent(mContext, com.example.home.Travel.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putStringArrayListExtra("IMAGE_TRAVEL", listTravels.get(position).getImageUrl());
+                    intent.putExtra("INFORMATION", listTravels.get(position).getFeature());
+                    intent.putExtra("PLACE", listTravels.get(position).getPlace());
+                    intent.putExtra("NAME", listTravels.get(position).getName());
+                    mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -62,12 +81,14 @@ public class CategoryTravelAdapter extends RecyclerView.Adapter<CategoryTravelVi
         return listTravels.size();
     }
 }
-class CategoryTravelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
+
+class CategoryTravelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
     ImageView mImage;
     TextView mName;
     TextView mPlace;
     TextView mFeature;
     private ItemClickListener itemClickListener; // Khai báo interface
+
     public CategoryTravelViewHolder(@NonNull View itemView) {
         super(itemView);
 
@@ -80,14 +101,23 @@ class CategoryTravelViewHolder extends RecyclerView.ViewHolder implements View.O
         itemView.setOnLongClickListener(this); // Mấu chốt ở đây , set sự kiên onLongClick cho View
     }
 
+    public void setItemClickListener(ItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
+
     @Override
     public void onClick(View v) {
+        itemClickListener.onClick(v, getAdapterPosition(), false); // Gọi interface , false là vì đây là onClick
 
     }
 
     @Override
     public boolean onLongClick(View v) {
-        return false;
+        itemClickListener.onClick(v, getAdapterPosition(), true); // Gọi interface , true là vì đây là onLongClick
+        return true;
     }
-    public ImageView getImage(){ return this.mImage;}
+
+    public ImageView getImage() {
+        return this.mImage;
+    }
 }

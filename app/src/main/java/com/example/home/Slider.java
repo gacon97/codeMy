@@ -14,11 +14,13 @@ import com.example.R;
 public class Slider extends PagerAdapter {
     Context context;
     LayoutInflater inflater;
-    public Slider(Context context) {
+    int images[];
+    String[] imagesURL;
+    public Slider(Context context, int[] images) {
         this.context = context;
+        this.images = images;
     }
 
-    int images[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
 
     @Override
     public int getCount() {
@@ -36,7 +38,6 @@ public class Slider extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.slider,container,false);
-        LinearLayout layoutSlide = (LinearLayout) view.findViewById(R.id.linearLayout);
         ImageView imageSlider = (ImageView) view.findViewById(R.id.imageSlider);
         imageSlider.setBackgroundResource(images[position]);
         container.addView(view);
