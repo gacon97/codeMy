@@ -401,4 +401,5 @@ AIzaSyB8OP1lfZMYO1XEPx9sPej-QOuhJJnCJos
     <string name="search">Travel</string>
     <string name="item_travel_category">Beach</string>
     <string name="title_activity_category_travel">CategoryTravel</string>
+    <string name="title_activity_travel">Travel</string>
 </resources>

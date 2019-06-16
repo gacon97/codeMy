@@ -1,5 +1,6 @@
 package com.example.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
@@ -8,11 +9,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 
 import com.example.R;
@@ -32,16 +35,9 @@ import java.util.TimerTask;
  */
 public class FragmentHome extends Fragment {
 
-    private static final String TAG = FragmentHome.class.getSimpleName();
-    private static final String URL = "https://api.androidhive.info/json/movies_2017.json";
-
     private RecyclerView viewListCategories;
-//    private ViewFlipper viewFlipper;
     private ViewPager viewPager;
-    private SearchView searchView;
     private Slider slider;
-    private float x1,x2;
-    static final int MIN_DISTANCE = 150;
     int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 3000;//delay in milliseconds before task is to be executed
@@ -98,7 +94,6 @@ public class FragmentHome extends Fragment {
         listCategories.add(new Category(0,"Sa mạc", R.drawable.cate_sa_mac));
         listCategories.add(new Category(6,"Khách sạn", R.drawable.cate_khach_san));
 
-//        adapter = new CategoryAdapter(getActivity(), listCategories);
         viewListCategories = view.findViewById(R.id.listCategories);
         RecyclerView.LayoutManager layoutCategories = new GridLayoutManager(getActivity(), 5);
         viewListCategories.setLayoutManager(layoutCategories);
@@ -115,10 +110,29 @@ public class FragmentHome extends Fragment {
                 handler.post(Update);
             }
         }, DELAY_MS, PERIOD_MS);
+        int images[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
 
-        slider = new Slider(getActivity());
+        slider = new Slider(getActivity(), images);
         viewPager.setAdapter(slider);
 
+
+        SearchView searchView = view.findViewById(R.id.search);
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    String key = searchView.getQuery().toString();
+                    Intent intent = new Intent(getContext(), CategoryTravel.class);
+                    intent.putExtra("KEY_WORD",key );
+                    startActivity(intent);
+                    return true;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+
+                    return false;
+                }
+            });
         return view;
     }
 
