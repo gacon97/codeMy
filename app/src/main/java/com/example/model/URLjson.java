@@ -24,4 +24,8 @@ public class URLjson {
     {
         return rootURL;
     }
+    public static final String getURLEvent()
+    {
+        return ip + "events/";
+    }
 }

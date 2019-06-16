@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,10 +20,18 @@ import android.widget.TextView;
 
 
 import com.example.R;
+import com.example.controller.ReadJsonDataEvent;
+import com.example.controller.ReadJsonDataTravel;
 import com.example.model.Category;
 import com.example.bottomnavigation.FadePageTransformer;
+import com.example.model.Event;
+import com.example.model.TopicEvent;
+import com.example.model.URLjson;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -36,6 +45,7 @@ import java.util.TimerTask;
 public class FragmentHome extends Fragment {
 
     private RecyclerView viewListCategories;
+    private RecyclerView viewListTopicEvent;
     private ViewPager viewPager;
     private Slider slider;
     int currentPage = 0;
@@ -44,6 +54,11 @@ public class FragmentHome extends Fragment {
     final long PERIOD_MS = 5000;
     GridView grid;
     ArrayList<Category> listCategories;
+    ArrayList<Event> listEvents;
+    ArrayList<TopicEvent> topicEvent;
+    Date todayDate = new Date();
+    TextView numberNotification;
+    int notification = 0;
 
     public FragmentHome() {
     }
@@ -58,11 +73,57 @@ public class FragmentHome extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getEventList(URLjson.getURLEvent());
+
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                try {
+                    synchronized (this) {
+                        wait(3000);
+
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if(listEvents != null)
+                                {
+
+                                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                                    Date date1 = new Date();
+                                    System.out.println(sdf.format(date1));
+                                    for (int i=0; i< listEvents.size();i++)
+                                    {
+                                        Date date2 = null;
+                                        try {
+                                            date2 = sdf.parse(listEvents.get(i).getStart_time());
+                                            if (date1.compareTo(date2) < 0) {
+                                                notification++;
+                                            }
+                                        } catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+                                    Log.d("nopti" , ""+notification);
+                                    numberNotification = getActivity().findViewById(R.id.numberNotification);
+                                    numberNotification.setText(""+notification);
+                                }
+                            }
+                        });
+
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            };
+        };
+        thread.start();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_fragment_home, container, false);
 
         viewPager = view.findViewById(R.id.viewpager);
@@ -115,6 +176,19 @@ public class FragmentHome extends Fragment {
         slider = new Slider(getActivity(), images);
         viewPager.setAdapter(slider);
 
+        topicEvent = new ArrayList<>();
+        topicEvent.add(new TopicEvent(1, R.drawable.topic_am_nhac, "Ca nhạc"));
+        topicEvent.add(new TopicEvent(2, R.drawable.topic_am_thuc, "Ẩm thực"));
+        topicEvent.add(new TopicEvent(3, R.drawable.topic_van_hoa, "Văn hóa"));
+        topicEvent.add(new TopicEvent(4, R.drawable.topic_game, "Game"));
+
+        viewListTopicEvent = view.findViewById(R.id.categoryEvent);
+        RecyclerView.LayoutManager layoutTopicEvent = new GridLayoutManager(getActivity(), 4);
+        viewListTopicEvent.setLayoutManager(layoutTopicEvent);
+        TopicEventAdapter topicEventAdapter = new TopicEventAdapter(getActivity(), topicEvent);
+        viewListTopicEvent.setAdapter(topicEventAdapter);
+        viewListTopicEvent.setItemAnimator(new DefaultItemAnimator());
+        viewListTopicEvent.setNestedScrollingEnabled(false);
 
         SearchView searchView = view.findViewById(R.id.search);
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -133,7 +207,17 @@ public class FragmentHome extends Fragment {
                     return false;
                 }
             });
+        Log.d("nopti" , ""+notification);
+
+
+
+
         return view;
+    }
+    public void getEventList(String url) {
+        ReadJsonDataEvent readJson = new ReadJsonDataEvent();
+        readJson.execute(url);
+        listEvents = readJson.eventList;
     }
 
 }
