@@ -31,6 +31,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.R;
 import com.example.model.Travel;
+import com.example.model.URLjson;
 import com.example.travelevent.CompassActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -51,7 +52,6 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -68,7 +68,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final String TAG = "MapsActivity";
     private FusedLocationProviderClient fusedLocationClient;
     private ArrayList<Travel> travelList;
-    private String URL = "http://3.82.158.167/api/travels";
+    private String URL = "";
     private FloatingActionButton discover_fab, fab_one, fab_two, fab_three, fab_four, fab_five;
     private Button clearButton;
     private TextView text_fab_1, text_fab_2, text_fab_3, text_fab_4, text_fab_5;
@@ -182,6 +182,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    public void getURL()
+    {
+        URLjson url = new URLjson();
+        URL =
+    }
+
     public void getCurrentLocation()
     {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -272,7 +278,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     addMarker(location, travelList.get(i).getName());
 
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
-                    readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images");
+                    readImageJson.execute("http://52.76.86.49/api/travel/"+travelList.get(i).getId()+"/images");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -319,7 +325,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 JSONObject obj = new JSONObject(s);
                 JSONArray array = obj.getJSONArray("data");
                 for (int i = 0; i < array.length(); i++) {
-                    String urlImage = "http://3.82.158.167"+array.getJSONObject(i).getString("image");
+                    String urlImage = "http://52.76.86.49"+array.getJSONObject(i).getString("image");
                     Log.d("ReadJson", "--------------------------");
                     Log.d("ReadJson", urlImage);
                     Log.d("ReadJson", t.getName());
@@ -328,26 +334,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap bmp = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                bmp = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return bmp;
-        }
-        protected void onPostExecute(Bitmap result) {
-            ImageView imageTravel = (ImageView)findViewById(R.id.imageTravel1);
-            imageTravel.setImageBitmap(result);
         }
     }
 
@@ -721,7 +707,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng location = new LatLng(travelList.get(i).getLat(), travelList.get(i).getLng());
                     addMarker(location, travelList.get(i).getName());
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
-                    readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images");
+                    readImageJson.execute("http://52.76.86.49/api/travel/"+travelList.get(i).getId()+"/images");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -731,5 +717,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, CompassActivity.class);
         return intent;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MapsActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
