@@ -3,22 +3,22 @@ package com.example.model;
 import android.util.Log;
 
 public class URLjson {
-    public  static  final String ip = "http://2c2fa8ff.ngrok.io/api/";
-    public  static  final String rootURL = "http://2c2fa8ff.ngrok.io/";
-    public static final String URL_TRAVLES = ip + "travels";
+    public  static  final String ip = "https://f4d09343.ngrok.io/api";
+    public  static  final String rootURL = "https://f4d09343.ngrok.io";
+    public static final String URL_TRAVLES = ip + "/travels";
 
     public static final String getURLCategoryTravel(String id)
     {
-        return ip + "category/" + id + "/travels";
+        return ip + "/category/" + id + "/travels";
     }
     public static final  String getURLImageTravel(String id)
     {
-        return ip + "travel/" + id + "/images";
+        return ip + "/travel/" + id + "/images";
     }
     public static final  String getURLSearch(String keyWord)
     {
 
-        return ip + "search/" + keyWord;
+        return ip + "/search/" + keyWord;
     }
     public static final String getRootURL()
     {
@@ -26,6 +26,6 @@ public class URLjson {
     }
     public static final String getURLEvent()
     {
-        return ip + "events/";
+        return ip + "/events";
     }
 }

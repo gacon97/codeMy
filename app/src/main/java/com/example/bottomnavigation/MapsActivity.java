@@ -68,7 +68,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final String TAG = "MapsActivity";
     private FusedLocationProviderClient fusedLocationClient;
     private ArrayList<Travel> travelList;
-    private String URL = "";
     private FloatingActionButton discover_fab, fab_one, fab_two, fab_three, fab_four, fab_five;
     private Button clearButton;
     private TextView text_fab_1, text_fab_2, text_fab_3, text_fab_4, text_fab_5;
@@ -182,12 +181,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    public void getURL()
-    {
-        URLjson url = new URLjson();
-//        URL = url.cho
-    }
-
     public void getCurrentLocation()
     {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -278,7 +271,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     addMarker(location, travelList.get(i).getName());
 
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
-                    readImageJson.execute("http://52.76.86.49/api/travel/"+travelList.get(i).getId()+"/images");
+                    readImageJson.execute(URLjson.ip+"/travel/"+travelList.get(i).getId()+"/images");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -325,10 +318,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 JSONObject obj = new JSONObject(s);
                 JSONArray array = obj.getJSONArray("data");
                 for (int i = 0; i < array.length(); i++) {
-                    String urlImage = "http://52.76.86.49"+array.getJSONObject(i).getString("image");
-                    Log.d("ReadJson", "--------------------------");
-                    Log.d("ReadJson", urlImage);
-                    Log.d("ReadJson", t.getName());
+                    String urlImage = URLjson.getRootURL()+array.getJSONObject(i).getString("image");
                     t.addUrlImage(urlImage);
                 }
             } catch (JSONException e) {
@@ -385,7 +375,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 Toast.makeText(MapsActivity.this, "Đang tải dữ liệu du lịch", Toast.LENGTH_SHORT).show();
-                getTravelList(URL);
+                getTravelList(URLjson.URL_TRAVLES);
             }
         });
 
@@ -446,6 +436,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             if (markerClicked.getTitle().equals(travelList.get(n).getName())==true) {
 //                                DownloadImageTask loadImage = new DownloadImageTask();
 //                                loadImage.execute(travelList.get(n).getImageUrl().get(0));
+                                Log.d("image", "--------------------------");
+                                Log.d("image", travelList.get(n).getImageUrl().get(0));
+
                                 Glide.
                                     with(MapsActivity.this)
                                     .load(travelList.get(n).getImageUrl().get(0))
@@ -707,7 +700,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng location = new LatLng(travelList.get(i).getLat(), travelList.get(i).getLng());
                     addMarker(location, travelList.get(i).getName());
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
-                    readImageJson.execute("http://52.76.86.49/api/travel/"+travelList.get(i).getId()+"/images");
+                    readImageJson.execute(URLjson.getRootURL()+"/travel/"+travelList.get(i).getId()+"/images");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
