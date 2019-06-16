@@ -3,8 +3,8 @@ package com.example.model;
 import android.util.Log;
 
 public class URLjson {
-    public  static  final String ip = "http://52.76.86.49/api/";
-    public  static  final String rootURL = "http://52.76.86.49/";
+    public  static  final String ip = "https://f4d09343.ngrok.io/api/";
+    public  static  final String rootURL = "https://f4d09343.ngrok.io";
     public static final String URL_TRAVLES = ip + "travels";
 
     public static final String getURLCategoryTravel(String id)
