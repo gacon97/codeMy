@@ -185,7 +185,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void getURL()
     {
         URLjson url = new URLjson();
-        URL =
+//        URL = url.cho
     }
 
     public void getCurrentLocation()
