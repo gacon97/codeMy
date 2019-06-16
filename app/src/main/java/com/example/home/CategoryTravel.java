@@ -59,6 +59,7 @@ public class CategoryTravel extends AppCompatActivity {
                 try {
                     synchronized (this) {
                         wait(5000);
+
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
