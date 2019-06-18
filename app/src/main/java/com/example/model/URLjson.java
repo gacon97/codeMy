@@ -4,8 +4,8 @@ import android.util.Log;
 
 public class URLjson {
 
-    public  static  final String ip = "https://f4d09343.ngrok.io/api";
-    public  static  final String rootURL = "https://f4d09343.ngrok.io";
+    public  static  final String ip = "http://2f428630.ngrok.io/api";
+    public  static  final String rootURL = "http://2f428630.ngrok.io";
     public static final String URL_TRAVLES = ip + "/travels";
 
 

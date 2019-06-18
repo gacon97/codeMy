@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.R;
+import com.example.model.Event;
 import com.example.model.Travel;
 import com.example.model.URLjson;
 import com.example.travelevent.CompassActivity;
@@ -68,6 +69,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final String TAG = "MapsActivity";
     private FusedLocationProviderClient fusedLocationClient;
     private ArrayList<Travel> travelList;
+    private ArrayList<Event> eventList;
     private FloatingActionButton discover_fab, fab_one, fab_two, fab_three, fab_four, fab_five;
     private Button clearButton;
     private TextView text_fab_1, text_fab_2, text_fab_3, text_fab_4, text_fab_5;
@@ -201,6 +203,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 str += addressList.get(0).getCountryName();
                                 LatLng marker = new LatLng(location.getLatitude(), location.getLongitude());
                                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 13));
+                                getTravelList(URLjson.URL_TRAVLES + "-near?lat="+location.getLatitude()+"&lng="+location.getLongitude()+"&radius=20");
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -272,6 +275,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
                     readImageJson.execute(URLjson.ip+"/travel/"+travelList.get(i).getId()+"/images");
+//                    ReadJsonEventTravel readEventJson = new ReadJsonEventTravel();
+//                    readEventJson.execute(URLjson.ip+"/events/"+ travelList.get(i).getId());
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -327,6 +332,61 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    public class ReadJsonEventTravel extends AsyncTask<String, Void, String> {
+        private Event event;
+        @Override
+        protected String doInBackground(String... strings) {
+            StringBuilder content = new StringBuilder();
+            try {
+                java.net.URL url = new URL(strings[0]);
+                Log.d("ReadJson", "URL done");
+                InputStreamReader inputStreamReader = new InputStreamReader(url.openConnection().getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    content.append(line);
+                }
+                bufferedReader.close();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return content.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            Log.d("ReadJson", "Chay load");
+            Log.d("ReadJson", s);
+
+            try {
+                JSONObject obj = new JSONObject(s);
+                JSONObject o = obj.getJSONObject("data");
+
+                int travel_id = o.getInt("travel_id");
+                String name = o.getString("name");
+                String topic = o.getString("topic");
+                String start_time = o.getString("start_time");
+                String end_time = o.getString("end_time");
+                String content = o.getString("content");
+
+                event.setContent(content);
+                event.setEnd_time(end_time);
+                event.setStart_time(start_time);
+                event.setTopic(topic);
+                event.setName(name);
+                event.setTravel_id(travel_id);
+
+                eventList.add(event);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void setElementView()
     {
         discover_fab = (FloatingActionButton)findViewById(R.id.fab);
@@ -375,7 +435,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 Toast.makeText(MapsActivity.this, "Đang tải dữ liệu du lịch", Toast.LENGTH_SHORT).show();
-                getTravelList(URLjson.URL_TRAVLES);
+                getCurrentLocation();
             }
         });
 
@@ -430,20 +490,52 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         title_travel.setText(markerClicked.getTitle());
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED:  //Da mo rong
-                        ImageView imageTravel = (ImageView)findViewById(R.id.imageTravel1);
-                        TextView discrible_text = (TextView)findViewById(R.id.discrible_travel);
+                        ImageView imageTravel1 = (ImageView) findViewById(R.id.imageTravel1);
+                        ImageView imageTravel2 = (ImageView) findViewById(R.id.imageTravel2);
+                        ImageView imageTravel3 = (ImageView) findViewById(R.id.imageTravel3);
+                        ImageView imageTravel4 = (ImageView) findViewById(R.id.imageTravel4);
+                        ImageView imageTravel5 = (ImageView) findViewById(R.id.imageTravel5);
+
+                        TextView discrible_text = (TextView) findViewById(R.id.discrible_travel);
+//                        TextView discrible_event = (TextView) findViewById(R.id.event_content);
+//                        TextView start_time = (TextView) findViewById(R.id.event_start_time);
+//                        TextView end_time = (TextView) findViewById(R.id.event_end_time);
                         for (int n = 0; n < travelList.size(); n++) {
                             if (markerClicked.getTitle().equals(travelList.get(n).getName())==true) {
-//                                DownloadImageTask loadImage = new DownloadImageTask();
-//                                loadImage.execute(travelList.get(n).getImageUrl().get(0));
                                 Log.d("image", "--------------------------");
                                 Log.d("image", travelList.get(n).getImageUrl().get(0));
 
                                 Glide.
                                     with(MapsActivity.this)
                                     .load(travelList.get(n).getImageUrl().get(0))
-                                    .into(imageTravel);
+                                    .into(imageTravel1);
                                 discrible_text.setText(travelList.get(n).getFeature());
+
+                                Glide.
+                                    with(MapsActivity.this)
+                                    .load(travelList.get(n).getImageUrl().get(1))
+                                    .into(imageTravel2);
+                                Glide.
+                                    with(MapsActivity.this)
+                                    .load(travelList.get(n).getImageUrl().get(2))
+                                    .into(imageTravel3);
+                                Glide.
+                                    with(MapsActivity.this)
+                                    .load(travelList.get(n).getImageUrl().get(3))
+                                    .into(imageTravel4);
+                                Glide.
+                                    with(MapsActivity.this)
+                                    .load(travelList.get(n).getImageUrl().get(4))
+                                    .into(imageTravel5);
+                                discrible_text.setText(travelList.get(n).getFeature());
+
+//                                for (int e =0; e<eventList.size();e++) {
+//                                    if (eventList.get(e).getTravel_id()==travelList.get(n).getId()) {
+//                                        discrible_event.setText(eventList.get(e).getContent());
+//                                        start_time.setText("Thời gian bắt đầu: " + eventList.get(e).getStart_time());
+//                                        end_time.setText("Thời gian kết thúc: " + eventList.get(e).getEnd_time());
+//                                    }
+//                                }
                             }
                         }
                         break;
