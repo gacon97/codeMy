@@ -92,6 +92,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             loadMap();
             prepareElementView();
         }
+        if(idevent!=0){
+            ReadJsonDataTravelEvent readJsonDataTravelEvent=new ReadJsonDataTravelEvent();
+            readJsonDataTravelEvent.execute(URLjson.URL_TRAVLES);
+        }
     }
 
     @Override
