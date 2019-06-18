@@ -182,13 +182,13 @@ public class FragmentHome extends Fragment {
         topicEvent.add(new TopicEvent(3, R.drawable.topic_van_hoa, "Văn hóa"));
         topicEvent.add(new TopicEvent(4, R.drawable.topic_game, "Game"));
 
-        viewListTopicEvent = view.findViewById(R.id.categoryEvent);
-        RecyclerView.LayoutManager layoutTopicEvent = new GridLayoutManager(getActivity(), 4);
-        viewListTopicEvent.setLayoutManager(layoutTopicEvent);
-        TopicEventAdapter topicEventAdapter = new TopicEventAdapter(getActivity(), topicEvent);
-        viewListTopicEvent.setAdapter(topicEventAdapter);
-        viewListTopicEvent.setItemAnimator(new DefaultItemAnimator());
-        viewListTopicEvent.setNestedScrollingEnabled(false);
+//        viewListTopicEvent = view.findViewById(R.id.categoryEvent);
+//        RecyclerView.LayoutManager layoutTopicEvent = new GridLayoutManager(getActivity(), 4);
+//        viewListTopicEvent.setLayoutManager(layoutTopicEvent);
+//        TopicEventAdapter topicEventAdapter = new TopicEventAdapter(getActivity(), topicEvent);
+//        viewListTopicEvent.setAdapter(topicEventAdapter);
+//        viewListTopicEvent.setItemAnimator(new DefaultItemAnimator());
+//        viewListTopicEvent.setNestedScrollingEnabled(false);
 
         SearchView searchView = view.findViewById(R.id.search);
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
