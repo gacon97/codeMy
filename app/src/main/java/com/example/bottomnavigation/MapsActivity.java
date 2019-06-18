@@ -272,7 +272,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     addMarker(location, travelList.get(i).getName());
 
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
-                    readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images");
+                    readImageJson.execute("http://3.82.158.167/api/travel/"+travelList.get(i).getId()+"/images"); 
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
