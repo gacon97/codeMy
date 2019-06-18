@@ -31,6 +31,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.R;
 import com.example.model.Travel;
+import com.example.model.URLjson;
 import com.example.travelevent.CompassActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -90,6 +91,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else {
             loadMap();
             prepareElementView();
+        }
+        if(idevent!=0){
+            ReadJsonDataTravelEvent readJsonDataTravelEvent=new ReadJsonDataTravelEvent();
+            readJsonDataTravelEvent.execute(URLjson.URL_TRAVLES);
         }
     }
 

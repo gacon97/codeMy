@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 
 
 import com.example.R;
+import com.example.model.URLjson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,7 +53,8 @@ public class UtilitiesFragment extends Fragment implements CardViewOptionsAdapte
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ReadJsonDataTravel1 readJsonDataTravel1=new ReadJsonDataTravel1();
-        readJsonDataTravel1.execute("http://3.82.158.167/api/events");
+        readJsonDataTravel1.execute(URLjson.URL_EVENT);
+
         Log.d("11111111111","travel app ");
 
         View view = inflater.inflate(R.layout.activity_utilities_fragment, container, false);

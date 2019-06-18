@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -29,7 +30,9 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.R;
+import com.example.bottomnavigation.FragmentMap;
 import com.example.bottomnavigation.MapsActivity;
+import com.example.model.URLjson;
 
 
 import org.json.JSONArray;
@@ -89,7 +92,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotels);
-
+        mActivity=this.getParent();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -144,7 +147,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 //        hotelsModelList.add(hotelsModel);
 //        recyclerView.setAdapter(new HotelsAdapter(HotelsActivity.this, hotelsModelList));
         ReadJsonDataTravel1 readJsonDataTravel1=new ReadJsonDataTravel1();
-        readJsonDataTravel1.execute("http://3.82.158.167/api/events");
+        readJsonDataTravel1.execute(URLjson.URL_EVENT);
 
 
        // String uri = API_LINK_V2 + "get-places/" + latitude + "/" + longitude + "/accommodation";
@@ -234,7 +237,7 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
      */
     private void fetchCitiesList() {
 
-        String uri ="http://3.82.158.167/api/events";
+        String uri =URLjson.URL_EVENT;
         Log.v("EXECUTING", uri);
 
         //Set up client
@@ -404,12 +407,18 @@ public class HotelsActivity extends AppCompatActivity implements View.OnClickLis
 //                                "+(name)+@" + latitude +
 //                                "," + longitude));
 //                        mContext.startActivity(browserIntent);
-                        int travelid =
+
+
+
+
+                         int travelid =
                             mHotelsModelList.get(position).getTravelid();
 
-                        browserIntent = MapsActivity.getStartIntent(mActivity);
+                        browserIntent = new Intent(mActivity, MapsActivity.class);
                         browserIntent.putExtra("travelid",travelid);
                         mContext.startActivity(browserIntent);
+
+
                     } catch (Exception e) {
                         e.printStackTrace();
                         networkError();
