@@ -36,6 +36,7 @@ import com.android.volley.toolbox.HttpResponse;
 import com.example.R;
 import com.example.bottomnavigation.FadePageTransformer;
 import com.example.controller.RequestHandler;
+import com.example.model.URLjson;
 import com.example.travelevent.Constants;
 import com.google.android.gms.ads.internal.gmsg.HttpClient;
 import com.squareup.picasso.Request;
@@ -145,13 +146,13 @@ public class Travel extends AppCompatActivity implements View.OnClickListener{
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(mContext, "Uploading Image", "Please wait...",true,true);
+//                loading = ProgressDialog.show(mContext, "Uploading Image", "Please wait...",true,true);
             }
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                loading.dismiss();
+//                loading.dismiss();
                 Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
             }
 
@@ -161,10 +162,14 @@ public class Travel extends AppCompatActivity implements View.OnClickListener{
                 String uploadImage = getStringImage(bitmap);
 
                 HashMap<String,String> data = new HashMap<>();
-                data.put(UPLOAD_KEY, uploadImage);
-                data.put("name",getFileName(filePath));
+//                data.put(UPLOAD_KEY, uploadImage);
+//                data.put("name",getFileName(filePath));
 
-                String result = rh.postRequest(UPLOAD_URL,data);
+                data.put("travel_id",""+6);
+                data.put(UPLOAD_KEY, uploadImage);
+
+                String result = rh.postRequest(URLjson.UPLOAD,data);
+                Log.d("ket qua", result);
                 return result;
             }
         }
