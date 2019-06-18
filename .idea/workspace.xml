@@ -13,8 +13,94 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4be82cf-bcd4-45ba-a546-bf16753749bd" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_map.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_map.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_map.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_map.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_map.png" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/home/ImageTravel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/home/ImageTravelAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/home/Travel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_travel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_travel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonDataEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/home/TopicEventAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/model/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/model/TopicEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/topic_am_nhac.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/topic_am_thuc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/topic_game.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/topic_van_hoa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_topic_event.xml" afterDir="false" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/controller/RequestHandler.java" afterDir="false" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/home/FragmentHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/home/FragmentHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/home/Travel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/home/Travel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/model/URLjson.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/model/URLjson.java" afterDir="false" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_home.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_travel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_travel.xml" afterDir="false" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
+>>>>>>> 12ddf53b74945d0aca7f3f1b606251843c9a8c67
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,10 +129,164 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="629">
+              <caret line="51" column="25" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+=======
+            <state relative-caret-position="144">
+              <caret line="54" column="62" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2263#2264#0" expanded="true" />
+                <element signature="e#2304#2305#0" expanded="true" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravelAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+=======
+            <state relative-caret-position="427">
+              <caret line="72" column="79" selection-start-line="72" selection-start-column="79" selection-end-line="72" selection-end-column="79" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="782">
+              <caret line="62" column="32" selection-start-line="62" selection-start-column="32" selection-end-line="62" selection-end-column="32" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+              <folding>
+                <element signature="imports" expanded="true" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+              </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_travel.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="43" column="36" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="36" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="901">
+              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="501">
+              <caret line="73" column="94" lean-forward="true" selection-start-line="73" selection-start-column="94" selection-end-line="73" selection-end-column="94" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_home.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1904">
+              <caret line="112" column="58" selection-start-line="112" selection-start-column="45" selection-end-line="112" selection-end-column="58" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/ImageTravelAdapter.java">
+=======
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/Travel.java">
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="637">
               <caret line="177" column="27" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/MyAdapter.java">
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/image_travel.xml">
+          <provider editor-type-id="android-designer2" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="1122">
+              <caret line="84" column="28" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
+=======
+            <state relative-caret-position="272">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/MyAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="367">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+            <state relative-caret-position="340">
+<<<<<<< HEAD
+              <caret line="51" column="75" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
+=======
+              <caret line="51" column="75" lean-forward="true" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
+>>>>>>> 12ddf53b74945d0aca7f3f1b606251843c9a8c67
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="212">
+              <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,31 +295,97 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/MyAdapter.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/Category.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="51" column="75" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+              <folding>
+                <element signature="e#541#542#0" expanded="true" />
+                <element signature="e#566#567#0" expanded="true" />
+                <element signature="e#599#600#0" expanded="true" />
+                <element signature="e#627#628#0" expanded="true" />
+              </folding>
+=======
+            <state relative-caret-position="459">
+              <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+            <state relative-caret-position="854">
+              <caret line="181" column="32" selection-start-line="181" selection-start-column="32" selection-end-line="181" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
             <state relative-caret-position="446">
               <caret line="75" selection-start-line="75" selection-end-line="75" />
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonDataTravel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="22" selection-start-line="78" selection-start-column="9" selection-end-line="81" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonImageTravel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="40" column="32" lean-forward="true" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/MapsActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9991">
+              <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
+            </state>
+          </provider>
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png">
+          <provider selected="true" editor-type-id="images" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_home.xml">
+          <provider editor-type-id="android-designer2" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_row.xml">
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml">
+          <provider editor-type-id="android-designer2" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
               <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
             </state>
           </provider>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+          <provider editor-type-id="android-designer2" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
           <provider editor-type-id="android-manifest" />
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -122,6 +428,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png">
+          <provider selected="true" editor-type-id="images" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_travel.xml">
+          <provider editor-type-id="android-designer2" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/Category.java">
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonDataEvent.java">
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/URLjson.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
@@ -133,6 +456,7 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/FragmentHome.java">
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="204" column="66" selection-start-line="204" selection-start-column="66" selection-end-line="204" selection-end-column="66" />
@@ -141,13 +465,50 @@
               </folding>
             </state>
           </provider>
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="136">
               <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="1309">
+              <caret line="100" column="71" selection-start-line="100" selection-start-column="71" selection-end-line="100" selection-end-column="71" />
+=======
+            <state relative-caret-position="1258">
+              <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
+            <state relative-caret-position="586">
+              <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+            <state relative-caret-position="680">
+              <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+=======
+            <state relative-caret-position="102">
+              <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
+            <state relative-caret-position="374">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
+>>>>>>> 12ddf53b74945d0aca7f3f1b606251843c9a8c67
             </state>
           </provider>
         </entry>
@@ -187,6 +548,38 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/ImageTravel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/Travel.java" />
+=======
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travelevent/TravelmateSnackbars.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_check_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main1.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/FragmentMap.java" />
+=======
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travelevent/ChecklistActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travelevent/ChecklistAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travelevent/CircleImageView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travelevent/CitySearchDialogCompat.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travelevent/CitySearchModelAdapter.java" />
+=======
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/travelevent/Compass.java" />
+=======
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-v21/activity_utilities_compass.xml" />
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/travelevent/CityDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/utils/CircleImageView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/travelevent/CompassActivity.java" />
@@ -211,17 +604,37 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_category_travel.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_category_travel.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonDataCategoryTravel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/MyAdapter.java" />
+<<<<<<< HEAD
+=======
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/model/URL.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonImageTravel.java" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonDataTravel.java" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravelAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/model/URL.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravel.java" />
+=======
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/model/Travel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/Slider.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/ImageTravel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/ImageTravelAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/image_travel.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravelAdapter.java" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_travel.xml" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/Travel.java" />
+<<<<<<< HEAD
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+=======
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/model/Event.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonDataEvent.java" />
@@ -229,29 +642,69 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_topic_event.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/TopicEventAdapter.java" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravel.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/model/URLjson.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_travel.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/controller/RequestHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/FragmentHome.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/Travel.java" />
+<<<<<<< HEAD
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/model/URLjson.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravel.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
+>>>>>>> 12ddf53b74945d0aca7f3f1b606251843c9a8c67
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="75" />
-    <option name="y" value="16" />
-    <option name="width" value="1281" />
-    <option name="height" value="732" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="976" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+=======
+=======
+      <pane id="ProjectPane" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
+      <pane id="PackagesPane" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -263,6 +716,33 @@
               <item name="codeMy" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+<<<<<<< HEAD
+              <item name="example" type="cbb59c9e:AndroidPsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="CategoryTravelAdapter.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="codeMy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="codeMy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+<<<<<<< HEAD
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="example" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+=======
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+=======
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
             </path>
             <path>
               <item name="codeMy" type="1abcf292:AndroidViewProjectNode" />
@@ -322,19 +802,43 @@
               <item name="codeMy" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <pane id="PackagesPane" />
+=======
+      <pane id="ProjectPane" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
+<<<<<<< HEAD
+    <property name="device.picker.selection" value="Pixel_2_API_28" />
+=======
     <property name="device.picker.selection" value="35fef70" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
     <property name="editor.config.ad.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../map" />
@@ -702,23 +1206,60 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.50084317" side_tool="true" weight="0.29003984" />
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49915683" visible="true" weight="0.21321961" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49915683" visible="true" weight="0.14925373" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49915683" visible="true" weight="0.12473348" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49915683" visible="true" weight="0.21321961" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49915683" visible="true" weight="0.21321961" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+>>>>>>> 12ddf53b74945d0aca7f3f1b606251843c9a8c67
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
+<<<<<<< HEAD
+      <window_info id="Resources Explorer" order="8" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4969743" weight="0.5822222" />
+=======
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4969743" weight="0.4301192" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
       <window_info id="Resources Explorer" order="8" weight="0.32995737" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4969743" visible="true" weight="0.31744313" />
+=======
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4969743" weight="0.31744313" />
+<<<<<<< HEAD
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.4762684" />
+=======
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="0" sideWeight="0.4969743" visible="true" weight="0.31744313" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+>>>>>>> 12ddf53b74945d0aca7f3f1b606251843c9a8c67
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.47562298" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
       <window_info anchor="bottom" id="Debug" order="2" weight="0.6579378" />
       <window_info anchor="bottom" id="TODO" order="3" weight="0.32733223" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3289689" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5030257" side_tool="true" weight="0.62296855" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5030257" side_tool="true" weight="0.62356794" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49016643" weight="0.4073673" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49016643" visible="true" weight="0.13542795" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="9" />
       <window_info anchor="bottom" id="Find" order="10" weight="0.32936078" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.32988048" />
@@ -735,6 +1276,28 @@
     <option name="LAST_COMMIT_MESSAGE" value="event" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/Movie.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/Travel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/OnSwipeTouchListener.java" />
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/ItemClickListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 12ddf53b74945d0aca7f3f1b606251843c9a8c67
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravelViewHolder.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_category_travel.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -762,7 +1325,17 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravelAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/MyAdapter.java">
+=======
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/MapsActivity.java">
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10829">
           <caret line="698" column="51" selection-start-line="698" selection-start-column="51" selection-end-line="698" selection-end-column="51" />
@@ -804,6 +1377,50 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonImageTravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/FragmentHome.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/URLjson.java">
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonDataTravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -811,29 +1428,99 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/Travel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="790">
+          <caret line="100" column="5" lean-forward="true" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
+          <folding>
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2486#2487#0" expanded="true" />
+            <element signature="e#2779#2780#0" expanded="true" />
+            <element signature="e#2817#2818#0" expanded="true" />
+          </folding>
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+=======
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/content/ContextWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="1122">
+          <caret line="84" column="28" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+=======
+        <state relative-caret-position="68">
+          <caret line="4" column="65" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
+=======
         <state relative-caret-position="164">
           <caret line="378" selection-start-line="378" selection-end-line="378" />
           <folding>
             <element signature="e#9384#9385#0" expanded="true" />
           </folding>
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/MyApplication.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
         <state relative-caret-position="561">
           <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding>
+            <element signature="e#813#844#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/FragmentHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="100" column="71" selection-start-line="100" selection-start-column="71" selection-end-line="100" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images" />
+=======
+=======
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="21443" column="16" selection-start-line="21443" selection-start-column="16" selection-end-line="21443" selection-end-column="16" />
         </state>
       </provider>
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/Slider.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -866,16 +1553,113 @@
           <caret line="16" selection-start-line="16" selection-end-line="23" selection-end-column="52" />
         </state>
       </provider>
+<<<<<<< HEAD
+<<<<<<< HEAD
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/image_travel.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_travel.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+        </state>
+      </provider>
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_travel.xml">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="427">
+          <caret line="72" column="79" selection-start-line="72" selection-start-column="79" selection-end-line="72" selection-end-column="79" />
+          <folding>
+<<<<<<< HEAD
+            <element signature="e#2779#2780#0" expanded="true" />
+            <element signature="e#2817#2818#0" expanded="true" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
+            <element signature="imports" expanded="true" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+          </folding>
+=======
+        <state relative-caret-position="510">
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+=======
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/URL.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/image_travel.xml">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <provider editor-type-id="android-designer2" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
+      <provider editor-type-id="android-designer2" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="153">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+=======
         <state relative-caret-position="272">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
+<<<<<<< HEAD
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonDataTravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="24" selection-start-line="24" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+        </state>
+      </provider>
+=======
+      <provider editor-type-id="android-designer2" />
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
+    </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonImageTravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="391">
+          <caret line="40" column="32" lean-forward="true" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/controller/ReadJsonDataTravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="22" selection-start-line="78" selection-start-column="9" selection-end-line="81" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/bottomnavigation/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9991">
+          <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
+=======
+        <state relative-caret-position="144">
+          <caret line="54" column="62" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_home.xml">
+      <provider editor-type-id="android-designer2" />
+=======
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/Travel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -890,6 +1674,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/Event.java">
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="153" />
@@ -932,6 +1717,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_topic_event.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="756">
+          <caret line="123" column="83" lean-forward="true" selection-start-line="123" selection-start-column="83" selection-end-line="123" selection-end-column="83" />
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
+=======
+        <state relative-caret-position="1088">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+=======
         <state relative-caret-position="459">
           <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
         </state>
@@ -968,8 +1763,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_home.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="381">
+          <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+=======
         <state relative-caret-position="185">
           <caret line="152" column="16" selection-start-line="152" selection-start-column="16" selection-end-line="152" selection-end-column="16" />
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
@@ -994,7 +1798,24 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+>>>>>>> f4f5efe299a8af25669efe3f7fd571dcaf311e26
+=======
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_home.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/model/URLjson.java">
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_travel.xml">
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
@@ -1115,7 +1936,16 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 89be29190c3490f3681df83c282206e2c9546987
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/ImageTravel.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/ImageTravelAdapter.java">
+>>>>>>> 1de3aca5ccd5da82302d1fc8ee1069bc20e4c302
+=======
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/home/CategoryTravelAdapter.java">
+>>>>>>> 55fd7f515cde97b004a9f22cb7481591e99a47f2
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="36" selection-start-line="36" selection-end-line="36" />
@@ -1132,6 +1962,7 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+>>>>>>> 9d4c86fe76561620aa3a6f0ad3928137854523fc
         </state>
       </provider>
     </entry>

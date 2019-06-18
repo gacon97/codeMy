@@ -34,7 +34,7 @@ public class CategoryTravelAdapter extends RecyclerView.Adapter<CategoryTravelVi
             Log.d("ReadJson", "++++++++++++++++++++++++++++");
             Log.d("Size imgae travel", "" + listTravels.get(i).getSizeImage());
             Log.d("ReadJson", "++++++++++++++++++++++++++++");
-            Log.d("First image", "" + listTravels.get(i).getImageUrl().get(0));
+//            Log.d("First image", "" + listTravels.get(i).getImageUrl().get(0));
 
         }
 
