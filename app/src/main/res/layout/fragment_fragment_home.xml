@@ -96,30 +96,14 @@
                     android:layout_marginBottom="15dp"
                     android:textColor="@color/place_autocomplete_prediction_primary_text"
                     />
-                <HorizontalScrollView
-                    android:layout_width="wrap_content"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/newEvent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#FFFFFF"
-                    >
-
-                    <GridLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:columnCount="3"
-                        android:orientation="horizontal"
-                        android:rowCount="1">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/categoryEvent"
-                            android:layout_width="450dp"
-                            android:layout_height="wrap_content"
-                            android:clipToPadding="false">
-
-                        </android.support.v7.widget.RecyclerView>
-
-
-                    </GridLayout>
-                </HorizontalScrollView>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
             </LinearLayout>

@@ -28,7 +28,7 @@ public class CategoryTravel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_travel);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
         int number = intent.getIntExtra(MyAdapter.ID_TRAVEL, 0);
@@ -75,7 +75,6 @@ public class CategoryTravel extends AppCompatActivity {
                                 }
                             }
                         });
-
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();

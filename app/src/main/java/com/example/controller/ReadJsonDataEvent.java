@@ -66,6 +66,10 @@ public class ReadJsonDataEvent extends AsyncTask<String, Void, String> {
                 Event event = new Event(id ,name, topic, start_time, end_time, deleteted_at, content, place,travel_id);
                 eventList.add(event);
 
+                ReadJsonImageEvent readImageJson = new ReadJsonImageEvent(eventList.get(i));
+                readImageJson.execute(URLjson.getURLImageEvent("" + eventList.get(i).getId()));
+
+                Log.e("da chay vao event", "---------");
             }
 
         } catch (JSONException e) {

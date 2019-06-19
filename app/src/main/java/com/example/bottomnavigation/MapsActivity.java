@@ -279,7 +279,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     ReadJsonImageTravel readImageJson = new ReadJsonImageTravel(travelList.get(i));
 
-                    readImageJson.execute(URLjson.ip+"/travel/"+travelList.get(i).getId()+"/images");
+                    readImageJson.execute(URLjson.ip+"travel/"+travelList.get(i).getId()+"/images");
 //                    ReadJsonEventTravel readEventJson = new ReadJsonEventTravel();
 //                    readEventJson.execute(URLjson.ip+"/events/"+ travelList.get(i).getId());
 

@@ -23,7 +23,7 @@ public class MyAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
     private Context mContext;
     private List<Category> categories;
     public static final String ID_TRAVEL = "com.example.application.example.ID_TRAVEL";
-    public static final ArrayList<Travel> TRAVELS = new ArrayList<>();
+//    public static final ArrayList<Travel> TRAVELS = new ArrayList<>();
 
     MyAdapter(Context mContext, List< Category > categories) {
         this.mContext = mContext;

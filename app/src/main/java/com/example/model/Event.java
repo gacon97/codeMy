@@ -1,5 +1,7 @@
 package com.example.model;
 
+import java.util.ArrayList;
+
 public class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Event {
     public int id;
     public String name;
@@ -10,6 +12,7 @@ public class                                                                    
     private String content;
     private String place;
     private int travel_id;
+    private ArrayList<String> imageUrl;
 
     public Event(int id, String name, String topic, String start_time, String end_time, String deleteted_at, String content, String place, int travel_id) {
         this.id = id;
@@ -21,6 +24,11 @@ public class                                                                    
         this.content = content;
         this.place = place;
         this.travel_id = travel_id;
+        imageUrl = new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -85,5 +93,17 @@ public class                                                                    
 
     public void setTravel_id(int travel_id) {
         this.travel_id = travel_id;
+    }
+    public void addUrlImage(String s)
+    {
+        imageUrl.add(s);
+    }
+
+    public int getSizeImage()
+    {
+        return imageUrl.size();
+    }
+    public ArrayList<String> getImageUrl() {
+        return imageUrl;
     }
 }

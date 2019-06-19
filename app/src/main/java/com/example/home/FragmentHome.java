@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.R;
 import com.example.controller.ReadJsonDataEvent;
 import com.example.controller.ReadJsonDataTravel;
+import com.example.controller.ReadJsonImageEvent;
 import com.example.model.Category;
 import com.example.bottomnavigation.FadePageTransformer;
 import com.example.model.Event;
@@ -45,7 +46,7 @@ import java.util.TimerTask;
 public class FragmentHome extends Fragment {
 
     private RecyclerView viewListCategories;
-    private RecyclerView viewListTopicEvent;
+    private RecyclerView viewListNewEvent;
     private ViewPager viewPager;
     private Slider slider;
     int currentPage = 0;
@@ -80,7 +81,7 @@ public class FragmentHome extends Fragment {
             public void run() {
                 try {
                     synchronized (this) {
-                        wait(3000);
+                        wait(8000);
 
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
@@ -90,7 +91,6 @@ public class FragmentHome extends Fragment {
 
                                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                                     Date date1 = new Date();
-                                    System.out.println(sdf.format(date1));
                                     for (int i=0; i< listEvents.size();i++)
                                     {
                                         Date date2 = null;
@@ -104,9 +104,15 @@ public class FragmentHome extends Fragment {
                                         }
 
                                     }
-                                    Log.d("nopti" , ""+notification);
                                     numberNotification = getActivity().findViewById(R.id.numberNotification);
                                     numberNotification.setText(""+notification);
+
+                                    viewListNewEvent = getActivity().findViewById(R.id.newEvent);
+                                    RecyclerView.LayoutManager layoutEvent = new LinearLayoutManager(getActivity());
+                                    viewListNewEvent.setLayoutManager(layoutEvent);
+
+                                    NewEventAdapter newEventAdapter = new NewEventAdapter(listEvents, getActivity());
+                                    viewListNewEvent.setAdapter(newEventAdapter);
                                 }
                             }
                         });
@@ -176,19 +182,22 @@ public class FragmentHome extends Fragment {
         slider = new Slider(getActivity(), images);
         viewPager.setAdapter(slider);
 
-        topicEvent = new ArrayList<>();
-        topicEvent.add(new TopicEvent(1, R.drawable.topic_am_nhac, "Ca nhạc"));
-        topicEvent.add(new TopicEvent(2, R.drawable.topic_am_thuc, "Ẩm thực"));
-        topicEvent.add(new TopicEvent(3, R.drawable.topic_van_hoa, "Văn hóa"));
-        topicEvent.add(new TopicEvent(4, R.drawable.topic_game, "Game"));
-
+//        topicEvent = new ArrayList<>();
+//        topicEvent.add(new TopicEvent(1,"Ca nhạc", R.drawable.topic_am_nhac));
+//        topicEvent.add(new TopicEvent(2,"Ẩm thực",R.drawable.topic_am_thuc));
+//        topicEvent.add(new TopicEvent(3, "Văn hóa", R.drawable.topic_van_hoa));
+//        topicEvent.add(new TopicEvent(4, "Game", R.drawable.topic_game));
+//
 //        viewListTopicEvent = view.findViewById(R.id.categoryEvent);
-//        RecyclerView.LayoutManager layoutTopicEvent = new GridLayoutManager(getActivity(), 4);
+//        RecyclerView.LayoutManager layoutTopicEvent = new GridLayoutManager(getActivity(), 3);
 //        viewListTopicEvent.setLayoutManager(layoutTopicEvent);
 //        TopicEventAdapter topicEventAdapter = new TopicEventAdapter(getActivity(), topicEvent);
 //        viewListTopicEvent.setAdapter(topicEventAdapter);
 //        viewListTopicEvent.setItemAnimator(new DefaultItemAnimator());
 //        viewListTopicEvent.setNestedScrollingEnabled(false);
+
+
+
 
         SearchView searchView = view.findViewById(R.id.search);
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -208,10 +217,6 @@ public class FragmentHome extends Fragment {
                 }
             });
         Log.d("nopti" , ""+notification);
-
-
-
-
         return view;
     }
     public void getEventList(String url) {

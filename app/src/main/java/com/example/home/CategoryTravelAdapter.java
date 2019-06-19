@@ -1,6 +1,5 @@
 package com.example.home;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -71,6 +70,8 @@ public class CategoryTravelAdapter extends RecyclerView.Adapter<CategoryTravelVi
                     intent.putExtra("INFORMATION", listTravels.get(position).getFeature());
                     intent.putExtra("PLACE", listTravels.get(position).getPlace());
                     intent.putExtra("NAME", listTravels.get(position).getName());
+                    intent.putExtra("ID", listTravels.get(position).getId());
+                    Log.e("id=-----------", ""+listTravels.get(position).getId());
                     mContext.startActivity(intent);
             }
         });
@@ -95,7 +96,7 @@ class CategoryTravelViewHolder extends RecyclerView.ViewHolder implements View.O
         mImage = itemView.findViewById(R.id.imageView);
         mName = itemView.findViewById(R.id.txtName);
         mPlace = itemView.findViewById(R.id.txtPlace);
-        mFeature = itemView.findViewById(R.id.txtFeature);
+        mFeature = itemView.findViewById(R.id.txtContent);
 
         itemView.setOnClickListener(this); // Mấu chốt ở đây , set sự kiên onClick cho View
         itemView.setOnLongClickListener(this); // Mấu chốt ở đây , set sự kiên onLongClick cho View

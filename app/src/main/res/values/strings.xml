@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_favorite">Favorites</string>
+    <string name="title_favorite">Discovery</string>
     <string name="title_event">Events</string>
     <string name="google_map_api_key">
 AIzaSyDWOS1RizpLmkVfPRhrsCLuQMcqrPEY_Sc
@@ -403,4 +403,6 @@ AIzaSyDWOS1RizpLmkVfPRhrsCLuQMcqrPEY_Sc
     <string name="item_travel_category">Beach</string>
     <string name="title_activity_category_travel">CategoryTravel</string>
     <string name="title_activity_travel">Travel</string>
+    <string name="title_activity_upload">activity_upload</string>
+    <string name="title_activity_event">activity_event</string>
 </resources>

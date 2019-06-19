@@ -1,11 +1,11 @@
 package com.example.model;
 
 public class TopicEvent {
-    public int id;
-    public int image;
-    public String name;
+    private int id;
+    private int image;
+    private String name;
 
-    public TopicEvent(int id, int image, String name) {
+    public TopicEvent(int id, String name, int image) {
         this.id = id;
         this.image = image;
         this.name = name;

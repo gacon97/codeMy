@@ -2,6 +2,7 @@ package com.example.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,12 +24,13 @@ import java.util.List;
 
 public class TopicEventAdapter  extends RecyclerView.Adapter<TopicEventViewHolder> {
     private Context mContext;
-    private ArrayList<TopicEvent> listTopicEvent;
+    private List<TopicEvent> listTopicEvent;
 
 
-    TopicEventAdapter(Context mContext, ArrayList<TopicEvent> listTopic) {
+    TopicEventAdapter(Context mContext, List<TopicEvent> listTopic) {
         this.mContext = mContext;
         this.listTopicEvent = listTopic;
+        Log.e("---------", listTopic.size()+"");
     }
 
 
@@ -40,6 +42,8 @@ public class TopicEventAdapter  extends RecyclerView.Adapter<TopicEventViewHolde
 
     @Override
     public void onBindViewHolder(final TopicEventViewHolder holder, int position) {
+//        Resources resources = mContext.getResources();
+//        holder.mImage.setImageDrawable(resources.getDrawable(listTopicEvent.get(position).getImage()));
         holder.mImage.setImageResource(listTopicEvent.get(position).getImage());
         holder.mTopic.setText(listTopicEvent.get(position).getName());
 
